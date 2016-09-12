@@ -1,0 +1,261 @@
+<HTML>
+
+<HEAD>
+	<script src="lib/jquery-2.1.4.min.js"></script>
+	<!-- System Constants -->
+	<script src="TypeScript/Constants/BlockConstants.js"></script>
+	<!-- Shapes -->
+	<script src="TypeScript/Objects/Shapes/Shape.js"></script>
+	<script src="TypeScript/Objects/Shapes/Circle.js"></script>
+	<script src="TypeScript/Objects/Shapes/Losangulo.js"></script>
+	<script src="TypeScript/Objects/Shapes/Rectangle.js"></script>
+	<script src="TypeScript/Objects/Shapes/Define.js"></script>
+	<script src="TypeScript/Objects/Shapes/Return.js"></script>
+	<script src="TypeScript/Objects/Shapes/Write.js"></script>
+	<script src="TypeScript/Objects/Shapes/Read.js"></script>
+	<script src="TypeScript/Objects/Shapes/elipse.js"></script>
+	<script src="TypeScript/Objects/Shapes/BreakContinueShape.js"></script>
+	<!-- Connectors -->
+	<script src="TypeScript/Objects/Lines/Line.js"></script>
+	<script src="TypeScript/Objects/Lines/HorizontalLine.js"></script>
+	<script src="TypeScript/Objects/Lines/VerticalLine.js"></script>
+	<!-- Blocks -->
+	<script src="TypeScript/Objects/Blocks/Block.js"></script>
+	<script src="TypeScript/Objects/Blocks/WhileBlock.js"></script>
+	<script src="TypeScript/Objects/Blocks/DoWhileBlock.js"></script>
+	<script src="TypeScript/Objects/Blocks/IfBlock.js"></script>
+	<script src="TypeScript/Objects/Blocks/DefineBlock.js"></script>
+	<script src="TypeScript/Objects/Blocks/WriteBlock.js"></script>
+	<script src="TypeScript/Objects/Blocks/ReadBlock.js"></script>
+	<script src="TypeScript/Objects/Blocks/ReturnBlock.js"></script>
+	<script src="TypeScript/Objects/Blocks/ExecuteBlock.js"></script>
+	<script src="TypeScript/Objects/Blocks/BegginingBlock.js"></script>
+	<script src="TypeScript/Objects/Blocks/BreakBlock.js"></script>
+	<script src="TypeScript/Objects/Blocks/ContinueBlock.js"></script>
+	<!-- PopUp -->
+	<script src="TypeScript/Objects/PopUps/NewBlockPopUp.js"></script>
+	<script src="TypeScript/Objects/PopUps/ContainerBlocksInstructionPopUp.js"></script>
+	<script src="TypeScript/Objects/PopUps/DefineBlockInstructionPopUp.js"></script>
+	<script src="TypeScript/Objects/PopUps/ReadBlockInstructionPopUp.js"></script>
+	<script src="TypeScript/Objects/PopUps/ReadBlockExecutionPopUp.js"></script>
+	<script src="TypeScript/Objects/PopUps/BreakContinueBlocksInstructionPopUp.js"></script>
+	<script src="TypeScript/Objects/PopUps/SuccessPopUp.js"></script>
+	<script src="TypeScript/Objects/PopUps/WarningPopUp.js"></script>
+	<script src="TypeScript/Objects/PopUps/ErrorPopUp.js"></script>
+	<script src="TypeScript/Objects/PopUps/ConfirmPopUp.js"></script>
+	<script src="TypeScript/Objects/PopUps/ShowCodePopUp.js"></script>
+	<script src="TypeScript/Objects/PopUps/helpPopUp.js"></script>
+	<!-- Managers -->
+	<script src="TypeScript/ObjectManager/ObjectManager.js"></script>
+	<script src="TypeScript/FluxogramFileManager.js"></script>
+	<script src="TypeScript/FluxogramManager.js"></script>
+	<script src="TypeScript/Executor.js"></script>
+
+	<script src="lib/jquery-2.1.4.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="lib/font-awesome-4.6.3/css/font-awesome.min.css">
+</HEAD>
+
+<BODY>
+	<!--Title Div-->
+	<div id="titleDiv">
+		<input id="inputFileFluxo" name="fluxoFile" type="file" style="display:none" />
+		<div id="BackImage"> </div>
+		<span id="projectName">Project Name</span>
+		<img id="iconAlgorithmi" src="img/iconAlgorithmi.png" />
+		<div id="controlPanelLeft">
+			<span id="newButton"><i class="fa fa-file"></i></span>
+			<span id="saveButton"><i class="fa fa-floppy-o"></i></span>
+			<label id="openFromFileButton" for="inputFileFluxo">
+					<i class="fa fa-folder-open"></i>
+			</label>
+			<span id="exportImageButton"><i class="fa fa-file-image-o"></i></span>
+			<span id="exportCodeButton"><i class="fa fa-file-code-o"></i></span>
+		</div>
+		<div id="controlPanelRight">
+			<span id="playButton"><i class="fa fa-play"></i></span>
+			<span id="playTime"><i class="fa fa-clock-o"></i></span>
+			<select id="playTimeVelocitySelect">
+						<option value="500">1/2 s/Bloco</option>
+						<option value="1000">1 s/Bloco</option>	
+						<option value="1500">1.5 s/Bloco</option>
+						<option value="2000">2 s/Bloco</option>
+					</select>
+			<span id="stopButton"><i class="fa fa-stop"></i></span>
+
+			<span id="helpButton"><i class="fa fa-question-circle"></i></span>
+		</div>
+	</div>
+	</div>
+
+	<!--Fluxogram Div-->
+	<div id="fluxogramDiv">
+	</div>
+
+	<!--memory Explorer Div-->
+	<div id="memoryExplorerDiv">
+		<div id="memoryContentDiv">
+			memory:
+			<div id="internalMemoryWidgetDiv">
+			</div>
+		</div>
+		<div id="memoryToolBar">
+			 <div id="memoryToolBarTitle">MEMORY</div>
+			<span id="memoryExplorerHideShowButton">
+					<i class="fa fa-sort invertedButton" aria-hidden="true" >
+					</i>
+				</span>
+		</div>
+	</div>
+
+
+	<!--Output Div-->
+	<div id="outputContainerDiv">
+		<div id="outputTopBarDiv">
+			 <div id="outputToolBarTitle">OUTPUT</div>
+			<span id="increaseFluxogramSale" onclick="fluxogram.scaleUp(event)"><i class="fa fa-search-plus"></i></span>
+			<span id="decreaseFluxogramSale" onclick="fluxogram.scaleDown(event);"><i class="fa fa-search-minus"></i></span>
+			<span id="decreaseFluxogramSale" onclick="fluxogram.scopeFluxogram();"><i class="fa fa-bullseye"></i></span>
+			<span id="ConsoleMoveButton"><i class="fa fa-sort" aria-hidden="true" style="color: white;position: absolute;left: 97%;"></i></span>
+		</div>
+		<div id="ouputContentDiv">
+			output:
+			<div id="internalOutputContentDiv">
+
+			</div>
+		</div>
+	</div>
+
+	<script>
+                "use strict";
+                var fluxogram = new FluxogramManager();
+                document.getElementById("fluxogramDiv").addEventListener("mouseDown",(e) => {this.preventDefaultFluxogram(e)});
+				
+				
+                function preventDefaultFluxogram(event){
+                    event.preventDefault();
+                }
+
+				$(document).ready(function(){
+
+					$("#newButton").click(function(){
+						fluxogram.newProject();
+					});
+
+					$("#exportImageButton").click(function(){
+						fluxogram.saveToImage();
+					});
+
+					$("#exportCodeButton").click(function(){
+						fluxogram.showFluxogramCode();
+					});
+
+
+					$("#helpButton").click(function () {
+						fluxogram.openHelpMenu(-1);
+					});
+
+					
+
+					$("#memoryExplorerHideShowButton").click(function(){
+						if($("#memoryExplorerDiv").width() < 18){
+
+							let tempConsoleWidth = $("#outputContainerDiv").width()  - (208 - 17);
+
+							$("#memoryExplorerDiv").animate({
+									left: '0%',
+									width: '208px'
+								});
+
+							$("#outputContainerDiv").width($(window).width() - $("#memoryExplorerDiv").width());
+
+							$("#outputContainerDiv").animate({
+									left: '208px',
+									width: tempConsoleWidth
+								});
+						}else{
+							let tempConsoleWidth = $("#outputContainerDiv").width()  + (208 - 17);
+
+							$("#memoryExplorerDiv").animate({
+									left: '0%',
+									width: '17px'
+								});
+
+							$("#outputContainerDiv").animate({
+									left: '17px',
+									width: tempConsoleWidth
+								});
+						}	
+					});
+					
+					$("#inputFileFluxo").change(function () {
+						fluxogram.openFile(this.files[0]);
+						this.value = "";
+					});
+
+					$("#saveButton").click(function () {
+						fluxogram.downloadFluxogram();
+					});
+
+					$(window).resize(function () {
+						fluxogram.resizeCanvas();
+						$("#outputContainerDiv").width($(window).width() - $("#memoryExplorerDiv").width());
+					});
+
+					$("#playButton").click(function(){
+
+						$("#memoryExplorerDiv").animate({
+							left: '0%',
+							width: '208px'
+						});
+
+						$("#outputContainerDiv").animate({
+							top:'80%',
+							height: '20%',
+							left: 208,
+							width: $(window).width() - 208
+						});
+
+						fluxogram.execute(1);
+					}); 
+					
+					$("#playTime").click(function(){
+						$("#memoryExplorerDiv").animate({
+							left: '0%',
+							width: '208px'
+						});
+
+						$("#outputContainerDiv").animate({
+							top:'80%',
+							height: '20%',
+							left: 208,
+							width: $(window).width() - 208
+						});
+
+						fluxogram.execute($("#playTimeVelocitySelect").val())
+					}); 
+					
+					$("#ConsoleMoveButton").click(function(){
+						if($("#outputContainerDiv").height() > 20){
+							var temp = $(window).height() - 17;
+							$("#outputContainerDiv").animate({
+								top: temp,
+								height: '0%',
+							});
+						}else{
+							$("#outputContainerDiv").animate({
+								top:'80%',
+								height: '20%',
+							});
+						}
+					}); 
+					
+					$("#stopButton").click(function(){
+						fluxogram.executor.stopExecution()
+					}); 
+				});
+			</script>
+</BODY>
+
+</HTML>

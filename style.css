@@ -1,0 +1,924 @@
+
+	#fluxogramContainer{
+		top:0;
+		left:0; 
+	}
+
+	#iconAlgorithmi{
+		position: absolute;
+		width: 60px;
+		height: 65px;
+		left: 10px;
+		top: 0px;
+	}
+
+	canvas { cursor: hand; }
+
+	body{
+		overflow: hidden;
+	}
+
+	#selectListDivContainer{
+		position: absolute;
+		top: 70px;
+		left: 35%;
+	}
+	#aboutMainTitle{
+		position: absolute;
+    left: 185px;
+    top: 31px;
+	}
+
+	#iconAlgorithmiHelpMenu{
+		position: absolute;
+		left: 80px;
+		top: 40px;
+	}
+
+	#variableValueExecution{
+		padding: 11px;
+		font-size: 16px;
+		position: absolute;
+		top: 70px;
+		left: 35%;
+		width: 40%;
+		border-radius: 70px;
+		height: 53px;
+		border: 5px solid black;
+	}
+
+	#helpInnerHtml{
+		position: absolute;
+		top: 54px;
+		left: 177px;
+		width: calc(100% - 195px);
+		height: calc(100% - 108px);
+		border-radius: 10px;
+		background-color: white;
+	}
+
+	#helpMenu{
+		position: absolute;
+		top: 100px;
+		left: calc(50% - 400px);
+		min-width: 800px;
+		height: 600px;
+		background: #9ca8ad;
+		border-radius: 10px;
+		border: solid 1px;
+	}
+
+	#memoryToolBarTitle{
+		-webkit-transform: rotate(-90deg);
+		-moz-transform: rotate(-90deg);
+		transform: rotate(90deg);
+		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+		position: absolute;
+		left: 0;
+		top: calc(50% - 40px);
+		right: 0;
+	}
+
+	#outputToolBarTitle{
+		position: absolute;
+    	left: calc(50% - 40px);
+	}
+
+
+	#developedInDiv{
+		position: absolute;
+   		top: 240px;
+	}
+
+	#developedInSpan{
+		position: absolute;
+		left: 250px;
+		width: 100px;
+	}
+	
+
+
+	#variableLabelType{
+		font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+		font-size: 14px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 500;
+		line-height: 15.4px;
+		position: absolute;
+		top: 50px;
+		left: 33%;
+		color: black;
+	}
+
+	#variableLabelName{
+		font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+		font-size: 14px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 500;
+		line-height: 15.4px;
+		position: absolute;
+		top: 130px;
+		left: 33%;
+		color: black;
+	}
+
+	#variableLabelValue{
+		font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+		font-size: 14px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 500;
+		line-height: 15.4px;
+		position: absolute;
+		top: 205px;
+		left: 33%;
+		color: black;
+	}
+
+	#variableNameTextBoxPopUp{
+			padding: 11px;
+		font-size: 16px;
+		position: absolute;
+		top: 150px;
+		left: 35%;
+		width: 40%;
+		border-radius: 70px;
+		height: 53px;
+		border: 5px solid black;
+	}
+
+	#variableValueTextBoxPopUp{
+		padding: 11px;
+		font-size: 16px;
+		position: absolute;
+		top: 221;
+		left: 35%;
+		width: 40%;
+		border-radius: 70px;
+		height: 53px;
+		border: 5px solid black;
+	}
+
+
+	.select {
+		font-size: 16px;
+		position: relative;
+		display: inline-block;
+	}
+
+	.select .arr {
+		background: #fff;
+		bottom: 5px;
+		position: absolute;
+		right: 5px;
+		border-radius: 70px;
+		top: 5px;
+		width: 50px;
+		pointer-events: none;
+	}
+
+	.select .arr:before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: 24px;
+		margin-top: -5px;
+		pointer-events: none;
+		border-top: 10px solid #EB5168;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+	}
+
+	.select .arr:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: 28px;
+		margin-top: -5px;
+		pointer-events: none;
+		border-top: 6px solid #fff;
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+	}
+
+	#memoryExplorerHideShowButton {
+		position: absolute;
+		color: white;
+		left: 3;
+	}
+
+	.invertedButton{
+		cursor: hand;
+		-ms-transform:rotate(90deg);     /* Internet Explorer 9 */
+		-webkit-transform:rotate(90deg); /* Chrome, Safari, Opera */
+		transform:rotate(90deg);         /* Standard syntax */
+	}
+
+	.select select {
+		outline: none;
+		-webkit-appearance: none;
+		display: block;
+		padding: 1.1em 13em 0.9em 1em;
+		margin: 0;
+		transition: border-color 0.2s;
+		border: 5px solid black;
+		border-radius: 76px;
+		background: #fff;
+		color: #555;
+		line-height: normal;
+		font-family: inherit;
+		font-size: inherit;
+		line-height: inherit;
+	}
+
+	#fluxogramDiv{
+		overflow: hidden;
+		/*background-color: #E0E0E0;*/
+		position: absolute;
+		left: 0%;
+		top: 64px;
+		bottom: 0%;
+		width: 100%;
+	}
+
+	#funcaoSelector{
+		position: absolute;
+		left: 5%;
+		top:6%;
+		width: 90%;
+	}
+
+	#titleDiv{
+		background: #3A7991;
+		position: absolute;
+		left: 0%;
+		top: 0%;
+		width: 100%;
+		min-width: 700px;
+		height: 68px;
+	}
+
+	#projectName{
+		color: black;
+		position: absolute;
+		width: 100px;
+		left: calc(50% - 50px);
+		top: 31%;
+	}
+
+	#increaseFluxogramSale{
+		color:white;
+	}
+
+	#creditsDiv{
+		width: 250px;
+		position: absolute;
+		top: 178px;
+		left: 183px;
+		text-align: center;
+	}
+
+	#saveButton{
+		cursor: hand;
+		color:white;
+		font-size: 1.7em;			
+	}
+
+	#aboutSecondTitle{
+		position: absolute;
+		top: 117px;
+		left: 100px;
+	}
+
+	#exportImageButton{
+		cursor: hand;
+		color:white;
+		padding-left: 21px;
+		font-size: 1.7em;
+	}
+
+	#exportCodeButton{
+		cursor: hand;
+		color:white;
+		font-size: 1.7em;
+	}
+
+	#newButton{
+		cursor: hand;
+		color:white;
+		font-size: 1.6em;
+	}
+
+	#decreaseFluxogramSale{
+		color:white;
+	}
+
+	#playButton{
+		cursor: hand;
+		color:green;
+		font-size: 1.7em;
+	}
+
+	#stopButton{
+		cursor: hand;
+		color:red;
+		font-size: 1.7em;
+	}
+
+	#helpButton{
+		cursor: hand;
+		color: #341da5;
+		font-size: 1.7em;
+		padding-left: 29px;
+	}
+
+	#helpButtonPopUp{
+		cursor: hand;
+		color: #341da5;
+		position: absolute;
+		right: 10px;
+	}
+
+	#playTime{
+		cursor: hand;
+		color:orange;
+		font-size: 1.7em;
+	}
+
+	#openFromFileButton{
+		cursor: hand;
+		color:white;
+		font-size: 1.7em;
+	}
+
+	#controlPanelLeft{
+		position: absolute;
+		left: 72px;
+		top: 31%;
+		width: 195px;
+		height: 28px;
+	}
+
+	#playTimeVelocitySelect{
+		cursor: hand;
+		border-radius: 10px;
+		padding-top: 3;
+		vertical-align: super;
+	}
+
+	#controlPanelLeft > span{
+		padding-right: 8px;
+	}
+
+	#controlPanelRight > span{
+		padding-right: 8px;
+	}
+
+	#controlPanelRight{
+		position: absolute;
+		right: 10;
+		top: 31%;
+		width: 300px;
+		height: 28px;
+	}
+
+	#outputContainerDiv{
+		position: absolute;
+		left: 17px;
+		top:calc(100% - 20px);
+		width: calc(100% - 17px);
+		height: 0%;
+		background-color: #3a7991;
+	}
+
+
+	#memoryExplorerDiv{
+		position: absolute;
+		left: 0%;
+		top: 64px;
+		width: 17px;
+		height: calc(100% - 64px);
+		background-color: #3a7991;
+	}
+
+
+	#internalMemoryWidgetDiv{
+		border-style: solid;
+		border-width: 1px;
+		background-color: #eaa189;
+		position: absolute;
+		left: 9px;
+		top: calc(0% + 19px);
+		width: calc(100% - 20px);
+		height: calc(100% - 30px);
+		border-radius: 12px;
+		overflow: hidden;
+		overflow: auto;
+	}
+
+	#internalOutputContentDiv{
+		position: absolute;
+		background-color: #eaa189;
+		top: 19px;
+		left: 10px;
+		width: calc(100% - 20px);
+		border-radius: 10px;
+		height: calc(100% - 30px);
+		border-style: solid;
+		border-width: 1px;
+		overflow: auto;
+	}
+
+	internalMemoryWidgetDiv > div{
+		display: block;
+	}
+
+	.memoryVariableDetailDiv{
+		margin-bottom: 5px;
+		width: 94%;
+		position: relative;
+		height: 71px;
+		background: #F0E4AF;
+		left: 5px;
+		border-radius: 10px;
+		margin-top: 5px;
+		border: solid;
+		border-width: 1px;
+	}
+
+	.valueInMemoryDetail{
+		position: absolute;
+		top: 30px;
+		width: calc(100% - 10px);
+		left: 5px;
+		border-radius: 10px;
+		height: 31px;
+	}
+
+	#memoryToolBar{
+		position: absolute;
+		width: 17px;
+		top: 0%;
+		left: calc(100% - 17px);
+		/* left: 80px; */
+		height: 100%;
+		background: #3A7991;
+	}
+	
+	#memoryContentDiv{
+		overflow: hidden;
+		position: absolute;
+		top: 0px;
+		left: 8px;
+		width: calc(100% - 26px);
+		height: calc(100% - 10px);
+		background: #ED8664;
+		border-radius: 10px;
+	}
+
+
+	#BackImage{
+		position: absolute;
+		width: 100%;
+		top: 12px;
+		border: solid;
+		border-width: 1px;
+		height: 65%;
+		border-radius: 10px;
+		background: red;
+		background: -moz-radial-gradient(center, ellipse cover, #F0E4AF 0%,#CF543E 100%);
+		background: -webkit-radial-gradient(center, ellipse cover, #F0E4AF 0%,#CF543E 100%);
+		background: radial-gradient(ellipse at center, #F0E4AF 0%,#CF543E 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+	}
+
+	#outputTopBarDiv{
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 20px;
+		background: #3A7991;
+	}
+
+	#ouputContentDiv{	
+		position: absolute;
+		left: 5px;
+		top: 20px;
+		width: calc(100% - 10px);
+		height: calc(100% - 31px);
+		background-color: #ed8664;
+		border-radius: 10px;
+		padding-top: 2px;
+		overflow: hidden;
+	}
+
+
+	#fluxogramContainer{
+		width: 100%;
+		height:100%;
+		overflow: hidden;
+	}
+
+	#divPop{
+		position: absolute;
+		border-radius: 5px;
+		width: 600px;
+		height: 455px;
+		top: calc(50% - 225px);
+		left: calc(50% - 300px);
+		background-color: #10465a;
+		border: 1px black;
+		border-style: double;
+		overflow-y: hidden;
+		overflow-x: hidden;
+		position: absolute;
+		display: block;
+	}
+
+
+
+	#errorPopUp{
+		position: absolute;
+		border-radius: 5px;
+		width: 320px;
+		height: 231px;
+		top: 34%;
+		left: 40%;
+		background-color: #eaa189;
+		border: 1px black;
+		border-style: solid;
+		position: absolute;
+		display: block;
+	}
+
+	#messageLabelPopUp{
+		position: absolute;
+		top: 65px;
+		overflow-y: auto; 
+		left : 5%;
+		width: 90%;
+		height: 40%;	
+	}
+
+
+	#closeButtonPopUp{
+		cursor: hand;
+		position: absolute;
+		top: calc(100% - 45px);
+		left: calc(50% - 86px);
+		width: 172px;
+		height: 25px;
+		background-color: #98F07D;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+		padding: 4px;
+	}
+
+	#popUpIcon{
+		position: absolute;
+		left: calc(50% - 50px);
+		top: -50px;
+		width: 100px;
+		height: 100px;
+	}
+
+	#divPopInstruction{
+		position: absolute;
+		border-radius: 5px;
+		width: 708px;
+		height: 320px;
+		top: calc(50% - 111px);
+    	left: calc(50% - 296px);
+		background-color: darkgray;
+		border: 1px black;
+		overflow-y: hidden;
+		border-style: double;
+		overflow-x: hidden;
+		position: absolute;
+		display: block;
+	}
+
+
+	#divPopInstructionContainer{
+		position: absolute;
+		border-radius: 5px;
+		width: 592px;
+		height: 222px;
+		top: calc(50% - 111px);
+    	left: calc(50% - 296px);
+		background-color: darkgray;
+		border: 1px black;
+		overflow-y: hidden;
+		border-style: double;
+		overflow-x: hidden;
+		position: absolute;
+		display: block;
+	}
+
+	#divPopBreakContinueEdit{
+		position: absolute;
+		border-radius: 5px;
+		width: 300px;
+		height: 222px;
+		top: calc(50% - 111px);
+    	left: calc(50% - 150px);
+		background-color: darkgray;
+		border: 1px black;
+		overflow-y: hidden;
+		border-style: double;
+		overflow-x: hidden;
+		position: absolute;
+		display: block;
+	}
+
+	#divCode{
+		position: absolute;
+		border-radius: 5px;
+		width: 407px;
+		height: 372px;
+		top: calc(30% - 111px);
+		left: calc(50% - 203px);
+		background-color: darkgray;
+		border: 1px black;
+		overflow-y: hidden;
+		border-style: double;
+		overflow-x: hidden;
+		position: absolute;
+		display: block;
+	}
+
+	#optionListDiv{
+		position: absolute;
+		top: 54px;
+		left: 17px;
+		border: solid 1px;
+		width: 150px;
+		background: #e0e0e0;
+		height: calc(100% - 105px);
+		border-radius: 10px;
+		overflow-y: auto;
+	}
+
+	#expressionInsert{
+		position: absolute;
+		top: 50px;
+		left: 11px;
+	}
+
+	#popUpMenu{
+		position: absolute;
+		top: 52px;
+		left: 5%;
+		min-width: 90%;
+		height: 81%;
+		overflow-y: auto;
+	}
+
+	#popUpMenuTitle{
+		position: absolute;
+		left: 2%;
+		top: 4px;
+		width: 95%;
+		padding: 4px;
+		height: 30px;
+		background-color: #dc8c6a;
+		color: #000;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+	}
+
+	#popupValidateCreateBlockPopUp{
+		cursor: hand;
+		position: absolute;
+		left: 51.5%;
+		width: 45.5%;
+		padding: 4px;
+		height: 25px;
+		background-color: #728c6a;
+		color: white;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+		top: calc(100% - 38px);
+	}
+
+	#popupValidateCreateBlockPopUpEditMode{
+		cursor: hand;
+		position: absolute;
+		left: 60%;
+		top: calc(100% - 38px);
+		width: 37.5%;
+		padding: 4px;
+		height: 25px;
+		background-color: #728c6a;
+		color: white;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+	}
+
+	#popupValidateRemoveBlockPopUp{
+		cursor: hand;
+		position: absolute;
+		left: 30.5%;
+		top: calc(100% - 38px);
+		width: 27.5%;
+		padding: 4px;
+		height: 25px;
+		background-color: #900E0E;
+		color: white;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+	}
+
+	#popupValidateBreakContinue{
+		cursor: hand;
+		position: absolute;
+		left: 7.5%;
+		top: calc(51% - 38px);
+		width: 81.5%;
+		padding: 4px;
+		height: 25px;
+		background-color: #900E0E;
+		color: white;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+	}
+
+	#popupBreakContinueCloseButtonEditMode{
+		cursor: hand;
+		position: absolute;
+		left: 7.5%;
+		top: calc(100% - 38px);
+		width: 81.5%;
+		padding: 4px;
+		height: 25px;
+		background-color: #F0E4AF;
+		color: #000;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+	}
+
+	#popupInstructionCloseButton{
+		cursor: hand;
+		position: absolute;
+		left: 2%;
+		top: calc(100% - 38px);
+		width: 47.75%;
+		padding: 4px;
+		height: 25px;
+		background-color: #F0E4AF;
+		color: #000;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+	}
+
+	#popupInstructionCloseButtonEditMode{
+		cursor: hand;
+		position: absolute;
+		left: 2%;
+		top: calc(100% - 38px);
+		width: 26.5%;
+		padding: 4px;
+		height: 25px;
+		background-color: #F0E4AF;
+		color: #000;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+	}
+
+	#help{
+		position: absolute;
+		width: 80%;
+		height: 29%;
+		background: green;
+	}
+
+	#confirmButtonPopUp{
+		cursor: hand;
+		position: absolute;
+		left: 4%;
+		top: calc(100% - 39px);
+		background-color: #98F07D;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+		width: 179px;
+		padding: 4px;
+		height: 25px;
+	}
+
+	#cancelButtonPopUp{
+		cursor: hand;
+		position: absolute;
+		left: 64%;
+		top: calc(100% - 39px);
+		background-color: #F0E4AF;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+		width: 94px;
+		padding: 4px;
+		height: 25px;
+	}
+			
+	.instructionTextArea{
+		height: 41%;
+		border: 2px solid #888;
+		background-color: aliceblue;
+		font-family: "Arial", Times, serif;
+		font-size: 22px;
+		width: 97%;
+		position: absolute;
+		top: 76px;
+		border-radius: 5px;
+		left: 10;
+	}
+	
+	#divCodeContent{
+	    white-space: pre;
+		position: absolute;
+		top: 50px;
+		width: 90%;
+		left: 5%;
+		height: calc(100% - 102px);
+		background-color: #eee;
+		overflow: auto;
+		border-radius: 10px;
+		padding: 4px;
+	}
+
+	#closeCodePopPupButton{
+		cursor: hand;
+		position: absolute;
+		top: calc(100% - 38px);
+		left: 10%;
+		background-color: #728c6a;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+		width: 80%;
+		padding: 4px;
+		height: 25px;
+	}
+
+	.masterMiniatureHelp{
+		width: calc(100% - 6px);
+		height: 40px;
+		position: relative;
+		text-align: center;
+		left: 3px;
+		border-radius: 10px;
+		background-color: #3a7991;
+		margin-top: 2px;
+	}
+
+	.miniatureMinorHelp{
+		width: calc(100% - 6px);
+		height: 40px;
+		border-radius: 10px;
+		background-color: #57a8c7;
+		position: relative;
+		margin-top: 2px;
+		text-align: center;
+		left: 3px;
+	}
+
+
+
+	.miniature{
+		cursor: hand;
+		text-align: center;
+		background-color: #3a7991;
+		color: #000;
+		border-radius: 5px;
+		margin-bottom: 10px;
+		height: 36px;
+		font-size: 150%;
+	}
+
+	#popupCloseButton{
+		cursor: hand;
+		position: absolute;
+		left: 2%;
+		top: 92%;
+		width: 95%;
+		padding: 4px;
+		height: 5%;
+		background-color: #F0E4AF;
+		color: #000;
+		border-radius: 5px;
+		font-size: 150%;
+		text-align: center;
+	}
+
