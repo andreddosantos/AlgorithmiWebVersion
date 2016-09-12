@@ -16,39 +16,39 @@ class NewBlockPopUp {
         this.closingButton = document.createElement('div');
         //this.closingButton.setAttribute("src", "./img/close-circle-512.png");
         this.closingButton.setAttribute("id", "popupCloseButton");
-        this.closingButton.innerHTML = "Cancel";
+        this.closingButton.innerHTML = lang.ButtonCancelPopUp;
         this.blockPopUpCreatorLeftMenu = document.createElement('div');
         this.blockPopUpCreatorLeftMenu.setAttribute("id", "popUpMenu");
         this.titleDIV = document.createElement('div');
         this.titleDIV.setAttribute("id", "popUpMenuTitle");
-        this.titleDIV.innerHTML = "Create New Block";
+        this.titleDIV.innerHTML = lang.NewBlockitlePopUp;
         this.firstBlockMiniature = document.createElement('div');
         this.firstBlockMiniature.setAttribute("class", "miniature");
-        this.firstBlockMiniature.innerHTML = "While Block";
+        this.firstBlockMiniature.innerHTML = lang.WhileBlock;
         this.secondBlockMiniature = document.createElement('div');
         this.secondBlockMiniature.setAttribute("class", "miniature");
-        this.secondBlockMiniature.innerHTML = "If Block";
+        this.secondBlockMiniature.innerHTML = lang.IfBlock;
         this.thirdBlockMiniature = document.createElement('div');
         this.thirdBlockMiniature.setAttribute("class", "miniature");
-        this.thirdBlockMiniature.innerHTML = "Define Block";
+        this.thirdBlockMiniature.innerHTML = lang.DefineBlock;
         this.fourthBlockMiniature = document.createElement('div');
         this.fourthBlockMiniature.setAttribute("class", "miniature");
-        this.fourthBlockMiniature.innerHTML = "Read Block";
+        this.fourthBlockMiniature.innerHTML = lang.ReadBlock;
         this.fifthBlockMiniature = document.createElement('div');
         this.fifthBlockMiniature.setAttribute("class", "miniature");
-        this.fifthBlockMiniature.innerHTML = "Execute Block";
+        this.fifthBlockMiniature.innerHTML = lang.ExecuteBlock;
         this.sixthBlockMiniature = document.createElement('div');
         this.sixthBlockMiniature.setAttribute("class", "miniature");
-        this.sixthBlockMiniature.innerHTML = "Write Block";
+        this.sixthBlockMiniature.innerHTML = lang.WriteBlock;
         this.seventhBlockMiniature = document.createElement('div');
         this.seventhBlockMiniature.setAttribute("class", "miniature");
-        this.seventhBlockMiniature.innerHTML = "Do While Block";
+        this.seventhBlockMiniature.innerHTML = lang.DoWhileBlock;
         this.heigthBlockMiniature = document.createElement('div');
         this.heigthBlockMiniature.setAttribute("class", "miniature");
-        this.heigthBlockMiniature.innerHTML = "Break Block";
+        this.heigthBlockMiniature.innerHTML = lang.BreakBlock;
         this.ninethBlockMiniature = document.createElement('div');
         this.ninethBlockMiniature.setAttribute("class", "miniature");
-        this.ninethBlockMiniature.innerHTML = "Continue Block";
+        this.ninethBlockMiniature.innerHTML = lang.ContinueBlock;
         this.popUp.appendChild(this.blockPopUpCreatorLeftMenu);
         this.popUp.appendChild(this.closingButton);
         this.popUp.appendChild(this.titleDIV);
@@ -129,13 +129,13 @@ class NewBlockPopUp {
         let helperVerticalLine = new VerticalLine(false, 10, 12, 12, 105, 6, "#000000", true, this.pressedConnector.parent, null, null);
         helperVerticalLine.next = null;
         helperVerticalLine.previous = this.pressedConnector.previous;
-        this.parentBlock.addBlock(this.pressedConnector, 7, "break");
+        this.parentBlock.addBlock(this.pressedConnector, 7, lang.BreakBlockInstruction);
     }
     addContinueBlock() {
         let helperVerticalLine = new VerticalLine(false, 10, 12, 12, 105, 6, "#000000", true, this.pressedConnector.parent, null, null);
         helperVerticalLine.next = null;
         helperVerticalLine.previous = this.pressedConnector.previous;
-        this.parentBlock.addBlock(this.pressedConnector, 8, "continue");
+        this.parentBlock.addBlock(this.pressedConnector, 8, lang.ContinueBlockInstruction);
     }
 }
 //# sourceMappingURL=NewBlockPopUp.js.map

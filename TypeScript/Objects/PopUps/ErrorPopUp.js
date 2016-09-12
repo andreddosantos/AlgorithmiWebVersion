@@ -20,7 +20,7 @@ class ErrorPopUp {
         //Confirm Button
         this.confirmButton = document.createElement('div');
         this.confirmButton.setAttribute("id", "closeButtonPopUp");
-        this.confirmButton.innerHTML = "Close";
+        this.confirmButton.innerHTML = lang.CloseButtonSentence;
         this.popUp.appendChild(this.successIcon);
         this.popUp.appendChild(this.confirmButton);
         this.popUp.appendChild(this.messageLabel);

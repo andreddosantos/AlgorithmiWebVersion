@@ -5,8 +5,8 @@ class BegginingBlock extends Block {
      */
     constructor(x, y, minWidth, minHeight, myCanvas, fluxogramManager, instruction) {
         super(x, y, minWidth, minHeight, myCanvas, fluxogramManager);
-        this.startingInstruction = "Inicio";
-        this.endingInstruction = "Fim";
+        this.startingInstruction = lang.BegginingBlockBegin;
+        this.endingInstruction = lang.BegginingBlockEnd;
         this.instruction = instruction;
         this.baseHeight = WhileBlockShapeSize.blockHeight;
         this.baseWidth = WhileBlockShapeSize.blockWidth;

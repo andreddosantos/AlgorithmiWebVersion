@@ -3,7 +3,7 @@ class ShowCodePopUpPopUp {
     constructor(code) {
         this.titleDIV = document.createElement('div');
         this.titleDIV.setAttribute("id", "popUpMenuTitle");
-        this.titleDIV.innerHTML = "PseudoCode *.*";
+        this.titleDIV.innerHTML = lang.CodeTitleSentence + "*.*";
         var helpImage = document.createElement("span");
         helpImage.setAttribute("id", "helpButtonPopUp");
         var tempHelpImage = document.createElement("i");
@@ -14,7 +14,7 @@ class ShowCodePopUpPopUp {
         helpImage.appendChild(tempHelpImage);
         this.closingButton = document.createElement('div');
         this.closingButton.setAttribute("id", "closeCodePopPupButton");
-        this.closingButton.innerHTML = "close";
+        this.closingButton.innerHTML = lang.CloseButtonSentence;
         this.popUp = document.createElement('div');
         this.popUp.setAttribute("id", "divCode");
         document.body.appendChild(this.popUp);

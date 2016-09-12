@@ -6,7 +6,7 @@ class BreakContinueBlocksInstructionPopUp {
         }
         this.titleDIV = document.createElement('div');
         this.titleDIV.setAttribute("id", "popUpMenuTitle");
-        this.titleDIV.innerHTML = 'Edit Block';
+        this.titleDIV.innerHTML = lang.BreakBlockEditTitlePopUp;
         let helpImage = document.createElement("span");
         helpImage.setAttribute("id", "helpButtonPopUp");
         let temp = this.parentBlock != null ? this.parentBlock : editBlock;
@@ -31,10 +31,10 @@ class BreakContinueBlocksInstructionPopUp {
         this.height = height;
         this.closingButton = document.createElement('div');
         this.closingButton.setAttribute("id", "popupBreakContinueCloseButtonEditMode");
-        this.closingButton.innerHTML = "Cancel";
+        this.closingButton.innerHTML = lang.ButtonCancelPopUp;
         this.removeBlockButton = document.createElement('div');
         this.removeBlockButton.setAttribute("id", "popupValidateBreakContinue");
-        this.removeBlockButton.innerHTML = "Remove Block";
+        this.removeBlockButton.innerHTML = lang.ButtonRemovePopUp;
         this.popUp.appendChild(this.removeBlockButton);
         this.titleDIV.appendChild(helpImage);
         this.popUp.appendChild(this.closingButton);

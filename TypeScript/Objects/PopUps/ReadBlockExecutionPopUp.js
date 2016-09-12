@@ -11,7 +11,7 @@ class ReadBlockExecutionPopUp {
         this.titleDIV.innerHTML = "Read Block";
         this.messageLabel = document.createElement('label');
         this.messageLabel.setAttribute("id", "variableLabelType");
-        this.messageLabel.innerHTML = "Insert value for " + variableName + " and press confirm : ";
+        this.messageLabel.innerHTML = lang.ReadBlockExecutionTextOne + variableName + lang.ReadBlockExecutionTextTwo;
         this.messageTextBox = document.createElement('input');
         this.messageTextBox.setAttribute("id", "variableValueExecution");
         this.messageTextBox.setAttribute("type", "text");
@@ -20,7 +20,7 @@ class ReadBlockExecutionPopUp {
         document.body.appendChild(this.popUp);
         this.editBlockButton = document.createElement('div');
         this.editBlockButton.setAttribute("id", "popupValidateCreateBlockPopUpEditMode");
-        this.editBlockButton.innerHTML = " Confirm ";
+        this.editBlockButton.innerHTML = lang.ButtonConfirmPopUp;
         this.popUp.appendChild(this.editBlockButton);
         this.editBlockButton.addEventListener('mousedown', (e) => {
             this.editBlockContent();

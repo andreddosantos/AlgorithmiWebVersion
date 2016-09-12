@@ -3,6 +3,7 @@ class DefineBlockInstructionPopUp {
     constructor(width, height, block, line, blockTye, editBlock) {
         //Create array of variableTypes to be added
         this.variableTypes = ["number", "string", "boolean"];
+        this.variableTypesName = [lang.variableTypesNameNumber, lang.variableTypesNameString, lang.variableTypesNameBoolean];
         if (document.body.contains(document.getElementById("divPopInstruction"))) {
             document.getElementById("divPopInstruction").parentNode.removeChild(document.getElementById("divPopInstruction"));
         }
@@ -17,13 +18,13 @@ class DefineBlockInstructionPopUp {
         this.selectContainerDiv.appendChild(this.variableTypesSelectList);
         this.variableTypeLabel = document.createElement('label');
         this.variableTypeLabel.setAttribute("id", "variableLabelType");
-        this.variableTypeLabel.innerHTML = "Variable Type:";
+        this.variableTypeLabel.innerHTML = lang.DefineBlockVariableTypeLabel;
         this.variableNameLabel = document.createElement('label');
         this.variableNameLabel.setAttribute("id", "variableLabelName");
-        this.variableNameLabel.innerHTML = "Variable Name:";
+        this.variableNameLabel.innerHTML = lang.DefineBlockVariableNameLabel;
         this.variableValueLabel = document.createElement('label');
         this.variableValueLabel.setAttribute("id", "variableLabelValue");
-        this.variableValueLabel.innerHTML = "Variable Value:";
+        this.variableValueLabel.innerHTML = lang.DefineBlockVariableValueLabel;
         this.nameTextBox = document.createElement('input');
         this.nameTextBox.setAttribute("id", "variableNameTextBoxPopUp");
         this.nameTextBox.setAttribute("type", "text");
@@ -33,7 +34,7 @@ class DefineBlockInstructionPopUp {
         this.variableTypes.forEach(element => {
             let option = document.createElement('option');
             option.value = element;
-            option.text = element;
+            option.text = this.variableTypesName[this.variableTypes.indexOf(element)];
             this.variableTypesSelectList.appendChild(option);
         });
         this.titleDIV = document.createElement('div');
@@ -60,20 +61,20 @@ class DefineBlockInstructionPopUp {
         this.height = height;
         this.closingButton = document.createElement('div');
         //this.closingButton.setAttribute("src", "./img/close-circle-512.png");
-        this.closingButton.innerHTML = "Cancel";
+        this.closingButton.innerHTML = lang.ButtonCancelPopUp;
         if (editBlock == null) {
-            this.titleDIV.innerHTML = "Create New Block";
+            this.titleDIV.innerHTML = lang.DefineBlockTitlePopUp;
             this.closingButton.setAttribute("id", "popupInstructionCloseButton");
             this.createBlockButton = document.createElement('div');
             this.createBlockButton.setAttribute("id", "popupValidateCreateBlockPopUp");
-            this.createBlockButton.innerHTML = "Create Block";
+            this.createBlockButton.innerHTML = lang.ButtonCreatePopUp;
             this.popUp.appendChild(this.createBlockButton);
             this.createBlockButton.addEventListener('mousedown', (e) => {
                 this.addBlock();
             });
         }
         else {
-            this.titleDIV.innerHTML = "Edit Block";
+            this.titleDIV.innerHTML = lang.DefineBlockEditTitlePopUp;
             this.nameTextBox.value = this.parentBlock.instruction;
             this.valueTextBox.value = this.parentBlock.value;
             this.variableTypesSelectList.selectedIndex = this.variableTypes.indexOf(this.parentBlock.type);
@@ -82,14 +83,14 @@ class DefineBlockInstructionPopUp {
             this.pressedLine = editBlock.previousConnector;
             this.editBlockButton = document.createElement('div');
             this.editBlockButton.setAttribute("id", "popupValidateCreateBlockPopUpEditMode");
-            this.editBlockButton.innerHTML = "Edit Block";
+            this.editBlockButton.innerHTML = lang.ButtonEditPopUp;
             this.popUp.appendChild(this.editBlockButton);
             this.editBlockButton.addEventListener('mousedown', (e) => {
                 this.editBlock();
             });
             this.removeBlockButton = document.createElement('div');
             this.removeBlockButton.setAttribute("id", "popupValidateRemoveBlockPopUp");
-            this.removeBlockButton.innerHTML = "Remove Block";
+            this.removeBlockButton.innerHTML = lang.ButtonRemovePopUp;
             this.popUp.appendChild(this.removeBlockButton);
             this.removeBlockButton.addEventListener('mousedown', (e) => {
                 this.removeBlock();
@@ -104,8 +105,6 @@ class DefineBlockInstructionPopUp {
     }
     closePopUp() {
         document.getElementById("divPopInstruction").parentNode.removeChild(document.getElementById("divPopInstruction"));
-        console.log("Closing PopUp " + Date.now());
-        this.pressedLine.parent.fluxogramManager.shapeObjectManager.popUpIsActive = false;
     }
     cancelPopUp() {
         this.closePopUp();
@@ -117,21 +116,23 @@ class DefineBlockInstructionPopUp {
         let helperVerticalLine = new VerticalLine(false, 10, 12, 12, 105, 6, "#000000", true, this.pressedLine.parent, null, null);
         helperVerticalLine.next = null;
         helperVerticalLine.previous = this.pressedLine.previous;
-        if (this.parentBlock.fluxogramManager.executor.validateVariablesForDefineBlock(helperVerticalLine, this.variableTypesSelectList.options[this.variableTypesSelectList.selectedIndex].textContent, this.nameTextBox.value, this.valueTextBox.value)) {
-            this.parentBlock.fluxogramManager.addblock(this.pressedLine.parent, this.pressedLine, this.blockType, this.nameTextBox.value, this.valueTextBox.value, this.variableTypesSelectList.options[this.variableTypesSelectList.selectedIndex].textContent);
+        if (this.parentBlock.fluxogramManager.executor.validateVariablesForDefineBlock(helperVerticalLine, this.variableTypesSelectList.options[this.variableTypesSelectList.selectedIndex].value, this.nameTextBox.value, this.valueTextBox.value)) {
+            this.parentBlock.fluxogramManager.addblock(this.pressedLine.parent, this.pressedLine, this.blockType, this.nameTextBox.value, this.valueTextBox.value, this.variableTypesSelectList.options[this.variableTypesSelectList.selectedIndex].value);
             this.closePopUp();
+            this.parentBlock.fluxogramManager.executor.validateFluxogram();
         }
     }
     removeBlock() {
         this.parentBlock.fluxogramManager.removeBlock(this.parentBlock);
         this.parentBlock.fluxogramManager.executor.validateFluxogram();
         this.closePopUp();
-        new WarningPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Heigth, "By erasing this varibale you might cause some colateral, check for highlited blocks");
+        new WarningPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Heigth, lang.DefineErrorErasingBlockMessage);
     }
     editBlock() {
-        if (this.parentBlock.fluxogramManager.executor.validateVariablesForDefineBlock(this.parentBlock.previousConnector, this.variableTypesSelectList.options[this.variableTypesSelectList.selectedIndex].textContent, this.nameTextBox.value, this.valueTextBox.value)) {
-            this.parentBlock.editBlockLogicInfo(this.nameTextBox.value, this.valueTextBox.value, this.variableTypesSelectList.options[this.variableTypesSelectList.selectedIndex].textContent);
+        if (this.parentBlock.fluxogramManager.executor.validateVariablesForDefineBlock(this.parentBlock.previousConnector, this.variableTypesSelectList.options[this.variableTypesSelectList.selectedIndex].value, this.nameTextBox.value, this.valueTextBox.value)) {
+            this.parentBlock.editBlockLogicInfo(this.nameTextBox.value, this.valueTextBox.value, this.variableTypesSelectList.options[this.variableTypesSelectList.selectedIndex].value);
             this.closePopUp();
+            this.parentBlock.fluxogramManager.executor.validateFluxogram();
         }
     }
 }

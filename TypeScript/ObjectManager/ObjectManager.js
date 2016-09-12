@@ -3,13 +3,14 @@ class ObjectManager {
     /**
      * canvas - Receive html element canvas
      */
-    constructor(canvas) {
+    constructor(canvas, fluxogramManager) {
         this.startCoords = { x: 0, y: 0 };
         this.canvas = canvas;
         this.width = canvas.width;
         this.height = canvas.height;
         this.context = canvas.getContext('2d');
         this.shapes = [];
+        this.fluxogramManager = fluxogramManager;
         this.popUpIsActive = false;
         //scale and pan
         this.scaleFactor = 1.0;
@@ -72,17 +73,19 @@ class ObjectManager {
     //Mouse Events --------------------------------
     mouseOverAction(e) {
         var rect = this.canvas.getBoundingClientRect();
-        //check if i'm over the shapes
-        for (var index = 0; index < this.shapes.length; index++) {
-            if (this.shapes[index].contains(this.mouseX(e, rect), this.mouseY(e, rect)) && this.shapes[index].reactOnHover) {
-                if (!this.shapes[index].onMouseOuver) {
-                    this.shapes[index].onMouseOuver = true;
-                    this.shapes[index].actionOnMouseOver(this.context);
+        if (!this.fluxogramManager.executor.isInExecution()) {
+            //check if i'm over the shapes
+            for (var index = 0; index < this.shapes.length; index++) {
+                if (this.shapes[index].contains(this.mouseX(e, rect), this.mouseY(e, rect)) && this.shapes[index].reactOnHover) {
+                    if (!this.shapes[index].onMouseOuver) {
+                        this.shapes[index].onMouseOuver = true;
+                        this.shapes[index].actionOnMouseOver(this.context);
+                    }
                 }
-            }
-            else if (this.shapes[index].onMouseOuver) {
-                this.shapes[index].onMouseOuver = false;
-                this.draw();
+                else if (this.shapes[index].onMouseOuver) {
+                    this.shapes[index].onMouseOuver = false;
+                    this.draw();
+                }
             }
         }
         if (this.isMouseDown) {
@@ -108,11 +111,13 @@ class ObjectManager {
         this.isMouseDown = true;
         this.startCoords = { x: this.mouseX(e, rect), y: this.mouseY(e, rect) };
         //check if i clicked any shape
-        for (var index = 0; index < this.shapes.length; index++) {
-            if (this.shapes[index].contains(this.mouseX(e, rect), this.mouseY(e, rect))) {
-                this.popUpIsActive = true;
-                this.isMouseDown = false;
-                this.shapes[index].actionOnMouseClick(this.context, this.fluxogramManager);
+        if (!this.fluxogramManager.executor.isInExecution()) {
+            for (var index = 0; index < this.shapes.length; index++) {
+                if (this.shapes[index].contains(this.mouseX(e, rect), this.mouseY(e, rect))) {
+                    this.popUpIsActive = true;
+                    this.isMouseDown = false;
+                    this.shapes[index].actionOnMouseClick(this.context, this.fluxogramManager);
+                }
             }
         }
     }

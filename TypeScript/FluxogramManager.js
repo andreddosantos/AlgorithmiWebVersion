@@ -5,11 +5,11 @@
  *
  */
 class FluxogramManager {
-    constructor() {
+    constructor(projectName) {
         //HTML Events
         this.canvas = document.createElement('canvas');
         this.fluxoFileManager = new FluxogramFileManager(this);
-        this.executor = new Executor(this);
+        this.projectName = projectName;
         this.fluxogramArea = document.createElement('div');
         this.fluxogramArea.setAttribute("id", "fluxogramContainer");
         this.fluxogramArea.appendChild(this.canvas);
@@ -23,7 +23,8 @@ class FluxogramManager {
         this.fluxogramArea.addEventListener('mousedown', (e) => {
             e.preventDefault();
         });
-        this.shapeObjectManager = new ObjectManager(this.canvas);
+        this.executor = new Executor(this);
+        this.shapeObjectManager = new ObjectManager(this.canvas, this);
         this.canvas.getContext("2d").lineHeight = 6;
         this.create();
     }
@@ -46,10 +47,9 @@ class FluxogramManager {
     }
     execute(velocity) {
         this.executor.stopExecution();
-        document.getElementById("internalOutputContentDiv").innerHTML = "<br /> ------------------------------------------------------ Begin " + document.getElementById('projectName').innerHTML + "<br /> <br />";
-        ;
         if (this.executor.validateFluxogram()) {
             var temp = [];
+            document.getElementById("internalOutputContentDiv").innerHTML = ' <span style="color:red;"> Begin Program ' + eval('Date()') + ' : <span><br><br>';
             this.executor.execute(this.startingBlock.findFirstConnector(this.startingBlock), velocity, temp);
         }
         else {
@@ -57,7 +57,9 @@ class FluxogramManager {
         }
     }
     saveToImage() {
-        this.fluxoFileManager.saveToImage();
+        if (!this.executor.isInExecution()) {
+            this.fluxoFileManager.saveToImage();
+        }
     }
     resizeCanvas() {
         this.canvas.width = document.getElementById("fluxogramDiv").offsetWidth;
@@ -72,11 +74,13 @@ class FluxogramManager {
         this.shapeObjectManager.draw();
     }
     showFluxogramCode() {
-        var temp = [];
-        this.fluxoFileManager.createFileFromFluxogram(this.startingBlock.findFirstConnector(this.startingBlock), temp);
-        var projectName = document.getElementById('projectName').innerHTML;
-        var fileContent = this.fluxoFileManager.parseFluxoInfoToShow(temp);
-        new ShowCodePopUpPopUp(fileContent);
+        if (!this.executor.isInExecution()) {
+            var temp = [];
+            this.fluxoFileManager.createFileFromFluxogram(this.startingBlock.findFirstConnector(this.startingBlock), temp);
+            var projectName = document.getElementById('projectName').innerHTML;
+            var fileContent = this.fluxoFileManager.parseFluxoInfoToShow(temp);
+            new ShowCodePopUpPopUp(fileContent);
+        }
     }
     scaleUp(e) {
         e.preventDefault();
@@ -96,24 +100,32 @@ class FluxogramManager {
         this.shapeObjectManager.draw();
     }
     openHelpMenu(innerTab) {
-        new helpPopUp(800, 600, innerTab);
+        debugger;
+        if (!this.executor.isInExecution()) {
+            new helpPopUp(innerTab);
+        }
     }
     openFile(file) {
-        this.fluxoFileManager.openFile(file);
-        this.resizeFluxogramBlocks();
-        this.resizeFluxogramBlocks();
-        this.shapeObjectManager.scaleFactor = 1;
-        this.shapeObjectManager.horizontalPan = 0;
-        this.shapeObjectManager.verticalPan = 0;
-        this.shapeObjectManager.context.setTransform(this.shapeObjectManager.scaleFactor, 0, 0, this.shapeObjectManager.scaleFactor, this.shapeObjectManager.horizontalPan, this.shapeObjectManager.verticalPan);
-        this.shapeObjectManager.draw();
+        if (!this.executor.isInExecution()) {
+            this.fluxoFileManager.openFile(file);
+            this.resizeFluxogramBlocks();
+            this.resizeFluxogramBlocks();
+            this.shapeObjectManager.scaleFactor = 1;
+            this.shapeObjectManager.horizontalPan = 0;
+            this.shapeObjectManager.verticalPan = 0;
+            this.shapeObjectManager.context.setTransform(this.shapeObjectManager.scaleFactor, 0, 0, this.shapeObjectManager.scaleFactor, this.shapeObjectManager.horizontalPan, this.shapeObjectManager.verticalPan);
+            this.shapeObjectManager.draw();
+        }
     }
     newProject() {
-        if (this.blocks.length > 1)
+        if (this.blocks.length > 1 && !this.executor.isInExecution())
             new ConfirmPopUp(ConfirmSuccessWarningPopUpSize.Width, ConfirmSuccessWarningPopUpSize.Heigth, "You will erase the entire fluxogram do you wish to continue?", "fluxogram.create()");
     }
     downloadFluxogram() {
-        this.fluxoFileManager.saveToFile();
+        debugger;
+        if (!this.executor.isInExecution()) {
+            this.fluxoFileManager.saveToFile();
+        }
     }
     /**
      * Adds new block in the fluxogram acording to parent block

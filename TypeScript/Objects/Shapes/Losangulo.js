@@ -28,20 +28,20 @@ class Losangulo extends Shape {
         if (this.parent instanceof WhileBlock) {
             ctx.save();
             ctx.font = '12px Arial';
-            ctx.fillText("while", this.xPosition + this.width, this.yPosition + this.height / 2 - 5);
+            ctx.fillText(lang.WhileBlockCondition, this.xPosition + this.width, this.yPosition + this.height / 2 - 5);
             ctx.restore();
         }
         if (this.parent instanceof DoWhileBlock) {
             ctx.save();
             ctx.font = '12px Arial';
-            ctx.fillText("while", this.xPosition + this.width / 2 + 7, this.yPosition);
+            ctx.fillText(lang.DoWhileBlockCondition, this.xPosition + this.width / 2 + 7, this.yPosition);
             ctx.restore();
         }
         if (this.parent instanceof IfBlock) {
             ctx.save();
             ctx.font = '12px Arial';
-            ctx.fillText("True", this.xPosition + this.width, this.yPosition + this.height / 2 - 5);
-            ctx.fillText("False", this.xPosition - 40, this.yPosition + this.height / 2 - 5);
+            ctx.fillText(lang.IfBlockTrueCondition, this.xPosition + this.width, this.yPosition + this.height / 2 - 5);
+            ctx.fillText(lang.IfBlockFalseCondition, this.xPosition - 40, this.yPosition + this.height / 2 - 5);
             ctx.restore();
         }
         ctx.restore();

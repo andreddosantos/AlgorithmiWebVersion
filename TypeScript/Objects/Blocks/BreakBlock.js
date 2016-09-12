@@ -2,7 +2,7 @@
 class BreakBlock extends Block {
     constructor(x, y, minWidth, minHeight, myCanvas, fluxogramManager, instruction, message) {
         super(x, y, minWidth, minHeight, myCanvas, fluxogramManager);
-        this.instruction = "break";
+        this.instruction = lang.BreakBlockInstruction;
         this.message = message;
         this.baseHeight = ReadBlockShapeSize.readShapeWidth;
         this.baseWidth = ReadBlockShapeSize.readShapeHeight;

@@ -3,7 +3,7 @@ var ExecutionStateEnum;
 (function (ExecutionStateEnum) {
     ExecutionStateEnum[ExecutionStateEnum["inExection"] = "#FA506F"] = "inExection";
     ExecutionStateEnum[ExecutionStateEnum["afterExecution"] = "#D4B8A3"] = "afterExecution";
-    ExecutionStateEnum[ExecutionStateEnum["invalidBlock"] = "#FA506F"] = "invalidBlock";
+    ExecutionStateEnum[ExecutionStateEnum["invalidBlock"] = "#ffd42a"] = "invalidBlock";
 })(ExecutionStateEnum || (ExecutionStateEnum = {}));
 ;
 var WhileBlockShapeSize;

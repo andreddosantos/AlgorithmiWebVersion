@@ -34,6 +34,9 @@ class Executor {
                 finalState = false;
                 element.executionState = ExecutionStateEnum.invalidBlock;
             }
+            if (isExpressionValid) {
+                element.executionState = "";
+            }
         });
         this.fluxogramManager.shapeObjectManager.draw();
         return finalState;
@@ -182,9 +185,22 @@ class Executor {
         this.fluxogramManager.blocks.forEach(element => {
             element.executionState = "";
         });
+        if (this.globalTimeOutId != null) {
+            window.clearTimeout(this.globalTimeOutId);
+            me.outputConsole.innerHTML += '<br><br> <span style="color:red;"> End Program <span>';
+            this.globalTimeOutId = null;
+        }
         this.fluxogramManager.shapeObjectManager.draw();
         this.destroyVariables(this.auxDeclaredVaribales);
         this.memoryConsole.innerHTML = '';
+    }
+    isInExecution() {
+        if (this.globalTimeOutId != null) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     readFromReadBlock(variableName, value) {
         try {
@@ -228,7 +244,6 @@ class Executor {
             new SuccessPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Height, "Executed with success, check the output below.");
             me.stopExecution();
             me.destroyVariables(declaredVariables);
-            this.outputConsole.innerHTML += " <br /> <br /> ------------------------------------------------------ End " + document.getElementById('projectName').innerHTML + "<br /> <br />";
             return;
         }
         if (line.next instanceof WriteBlock)

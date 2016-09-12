@@ -20,7 +20,7 @@ class WarningPopUp {
         //Confirm Button
         this.confirmButton = document.createElement('div');
         this.confirmButton.setAttribute("id", "closeButtonPopUp");
-        this.confirmButton.innerHTML = "close";
+        this.confirmButton.innerHTML = lang.CloseButtonSentence;
         this.popUp.appendChild(this.successIcon);
         this.popUp.appendChild(this.confirmButton);
         this.popUp.appendChild(this.messageLabel);
@@ -30,8 +30,6 @@ class WarningPopUp {
     }
     closePopUp() {
         document.getElementById("errorPopUp").parentNode.removeChild(document.getElementById("errorPopUp"));
-    }
-    addWhileBlock() {
     }
 }
 //# sourceMappingURL=WarningPopUp.js.map

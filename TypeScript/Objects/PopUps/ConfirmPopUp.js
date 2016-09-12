@@ -21,11 +21,11 @@ class ConfirmPopUp {
         //Confirm Button
         this.confirmButton = document.createElement('div');
         this.confirmButton.setAttribute("id", "confirmButtonPopUp");
-        this.confirmButton.innerHTML = "confirm";
+        this.confirmButton.innerHTML = lang.ButtonConfirmPopUp;
         //Cancel Button
         this.cancelButton = document.createElement('div');
         this.cancelButton.setAttribute("id", "cancelButtonPopUp");
-        this.cancelButton.innerHTML = "cancel";
+        this.cancelButton.innerHTML = lang.ButtonCancelPopUp;
         this.popUp.appendChild(this.cancelButton);
         this.popUp.appendChild(this.successIcon);
         this.popUp.appendChild(this.confirmButton);

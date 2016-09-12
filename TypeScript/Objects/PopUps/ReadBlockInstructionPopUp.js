@@ -25,7 +25,7 @@ class ReadBlockInstructionPopUp {
         this.selectContainerDiv.appendChild(this.variableNamesSelectList);
         this.variableNameLabel = document.createElement('label');
         this.variableNameLabel.setAttribute("id", "variableLabelType");
-        this.variableNameLabel.innerHTML = "Variable to read:";
+        this.variableNameLabel.innerHTML = lang.ReadBlockInstructionPopUp;
         //get variables in scope from executor
         this.variableNames = pressedConnector.parent.fluxogramManager.executor.getVariablesInScope(pressedConnector, this.variableNames);
         this.variableNames.forEach(element => {
@@ -35,16 +35,16 @@ class ReadBlockInstructionPopUp {
             this.variableNamesSelectList.appendChild(option);
         });
         this.closingButton = document.createElement('div');
-        this.closingButton.innerHTML = "Cancel";
+        this.closingButton.innerHTML = lang.ButtonCancelPopUp;
         this.popUp = document.createElement('div');
         this.popUp.setAttribute("id", "divPopInstructionContainer");
         document.body.appendChild(this.popUp);
         if (editBlock == null) {
-            this.titleDIV.innerHTML = "Create New Block";
+            this.titleDIV.innerHTML = lang.ReadBlockTitlePopUp;
             this.closingButton.setAttribute("id", "popupInstructionCloseButton");
             this.createBlockButton = document.createElement('div');
             this.createBlockButton.setAttribute("id", "popupValidateCreateBlockPopUp");
-            this.createBlockButton.innerHTML = "Create Block";
+            this.createBlockButton.innerHTML = lang.ButtonCreatePopUp;
             this.popUp.appendChild(this.createBlockButton);
             this.createBlockButton.addEventListener('mousedown', (e) => {
                 this.addBlock();
@@ -55,20 +55,20 @@ class ReadBlockInstructionPopUp {
                 new WarningPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Heigth, "The selected variable no longer exists, choose another or remove the block");
             }
             this.variableNamesSelectList.selectedIndex = this.variableNames.indexOf(this.editBlock.instruction);
-            this.titleDIV.innerHTML = "Edit Block";
+            this.titleDIV.innerHTML = lang.ReadBlockEditTitlePopUp;
             this.closingButton.setAttribute("id", "popupInstructionCloseButtonEditMode");
             this.parentBlock = editBlock;
             this.pressedConnector = editBlock.previousConnector;
             this.editBlockButton = document.createElement('div');
             this.editBlockButton.setAttribute("id", "popupValidateCreateBlockPopUpEditMode");
-            this.editBlockButton.innerHTML = "Edit Block";
+            this.editBlockButton.innerHTML = lang.ButtonEditPopUp;
             this.popUp.appendChild(this.editBlockButton);
             this.editBlockButton.addEventListener('mousedown', (e) => {
                 this.editBlockContent();
             });
             this.removeBlockButton = document.createElement('div');
             this.removeBlockButton.setAttribute("id", "popupValidateRemoveBlockPopUp");
-            this.removeBlockButton.innerHTML = "Remove Block";
+            this.removeBlockButton.innerHTML = lang.ButtonRemovePopUp;
             this.popUp.appendChild(this.removeBlockButton);
             this.removeBlockButton.addEventListener('mousedown', (e) => {
                 this.removeBlock();
@@ -94,20 +94,22 @@ class ReadBlockInstructionPopUp {
         this.closePopUp();
     }
     editBlockContent() {
-        this.editBlock.editBlock(this.variableNamesSelectList.options[this.variableNamesSelectList.selectedIndex].textContent, "");
+        this.parentBlock.editBlock(this.variableNamesSelectList.options[this.variableNamesSelectList.selectedIndex].textContent, "");
         this.closePopUp();
+        this.parentBlock.fluxogramManager.executor.validateFluxogram();
     }
     addBlock() {
         let helperVerticalLine = new VerticalLine(false, 10, 12, 12, 105, 6, "#000000", true, this.pressedConnector.parent, null, null);
         helperVerticalLine.next = null;
         helperVerticalLine.previous = this.pressedConnector.previous;
         if (this.variableNames.length < 1) {
-            new ErrorPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Heigth, "No variables to be selected!");
+            new ErrorPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Heigth, lang.ReadBlockPopUpError);
             this.closePopUp();
             return;
         }
         this.parentBlock.fluxogramManager.addblock(this.pressedConnector.parent, this.pressedConnector, this.blockType, this.variableNamesSelectList.options[this.variableNamesSelectList.selectedIndex].textContent, "", null);
         this.closePopUp();
+        this.parentBlock.fluxogramManager.executor.validateFluxogram();
     }
 }
 //# sourceMappingURL=ReadBlockInstructionPopUp.js.map

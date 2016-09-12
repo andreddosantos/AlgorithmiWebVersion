@@ -27,12 +27,12 @@ class ContainerBlocksInstructionPopUp {
         this.height = height;
         this.closingButton = document.createElement('div');
         //this.closingButton.setAttribute("src", "./img/close-circle-512.png");
-        this.closingButton.innerHTML = "Cancel";
+        this.closingButton.innerHTML = lang.ButtonCancelPopUp;
         this.instructionTextBox = document.createElement('textarea');
         this.instructionTextBox.setAttribute("class", "instructionTextArea");
         if (editBlock == null) {
-            this.titleDIV.innerHTML = "Create New Block";
-            expressionInsert.innerHTML += "Insert a valid expression: ";
+            this.titleDIV.innerHTML = lang.ContainerBlockTitlePopUp;
+            expressionInsert.innerHTML += lang.ContainerBlockMessagePopUp;
             this.closingButton.setAttribute("id", "popupInstructionCloseButton");
             this.createBlockButton = document.createElement('div');
             this.createBlockButton.setAttribute("id", "popupValidateCreateBlockPopUp");
@@ -44,22 +44,22 @@ class ContainerBlocksInstructionPopUp {
             });
         }
         else {
-            this.titleDIV.innerHTML = "Edit Block";
-            expressionInsert.innerHTML += "Edit this block expression: ";
+            this.titleDIV.innerHTML = lang.ContainerBlockEditTitlePopUp;
+            expressionInsert.innerHTML += lang.ContainerBlockEditMessagePopUp;
             this.closingButton.setAttribute("id", "popupInstructionCloseButtonEditMode");
             this.parentBlock = editBlock;
             this.pressedConnector = editBlock.previousConnector;
             this.instructionTextBox.value = String(this.parentBlock.instruction).toString();
             this.editBlockButton = document.createElement('div');
             this.editBlockButton.setAttribute("id", "popupValidateCreateBlockPopUpEditMode");
-            this.editBlockButton.innerHTML = "Edit Block";
+            this.editBlockButton.innerHTML = lang.ButtonEditPopUp;
             this.popUp.appendChild(this.editBlockButton);
             this.editBlockButton.addEventListener('mousedown', (e) => {
                 this.editBlock();
             });
             this.removeBlockButton = document.createElement('div');
             this.removeBlockButton.setAttribute("id", "popupValidateRemoveBlockPopUp");
-            this.removeBlockButton.innerHTML = "Remove Block";
+            this.removeBlockButton.innerHTML = lang.ButtonRemovePopUp;
             this.popUp.appendChild(this.removeBlockButton);
             this.popUp.appendChild(this.instructionTextBox);
             this.removeBlockButton.addEventListener('mousedown', (e) => {
@@ -117,35 +117,41 @@ class ContainerBlocksInstructionPopUp {
     }
     removeBlock() {
         this.parentBlock.fluxogramManager.removeBlock(this.parentBlock);
+        this.parentBlock.fluxogramManager.executor.validateFluxogram();
         this.closePopUp();
     }
     editBlock() {
         if ((this.parentBlock instanceof IfBlock || this.parentBlock instanceof WhileBlock || this.parentBlock instanceof DoWhileBlock)) {
             if (this.parentBlock.fluxogramManager.executor.validateExpressionForContainerBlock(this.pressedConnector, this.instructionTextBox.value)) {
                 this.parentBlock.editBlockInstruction(this.instructionTextBox.value);
+                this.parentBlock.fluxogramManager.executor.validateFluxogram();
                 this.closePopUp();
             }
         }
         else if (this.parentBlock instanceof WriteBlock) {
             if (this.parentBlock.fluxogramManager.executor.validateWriteBlockExpression(this.pressedConnector, this.instructionTextBox.value)) {
                 this.parentBlock.editBlockInstruction(this.instructionTextBox.value);
+                this.parentBlock.fluxogramManager.executor.validateFluxogram();
                 this.closePopUp();
             }
         }
         else if (this.parentBlock instanceof ReadBlock) {
             if (this.parentBlock.fluxogramManager.executor.validateReadBlockInstruction(this.pressedConnector, this.instructionTextBox.value)) {
                 this.parentBlock.editBlockInstruction(this.instructionTextBox.value);
+                this.parentBlock.fluxogramManager.executor.validateFluxogram();
                 this.closePopUp();
             }
         }
         else if (this.parentBlock instanceof ExecuteBlock) {
             if (this.parentBlock.fluxogramManager.executor.validateExecuteBlockExpression(this.pressedConnector, this.instructionTextBox.value)) {
                 this.parentBlock.editBlockInstruction(this.instructionTextBox.value);
+                this.parentBlock.fluxogramManager.executor.validateFluxogram();
                 this.closePopUp();
             }
         }
         else {
             this.parentBlock.editBlockInstruction(this.instructionTextBox.value);
+            this.parentBlock.fluxogramManager.executor.validateFluxogram();
             this.closePopUp();
         }
     }
