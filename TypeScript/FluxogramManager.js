@@ -57,7 +57,7 @@ class FluxogramManager {
         }
     }
     saveToImage() {
-        if (!this.executor.isInExecution()) {
+        if (!this.executor.isInExecution() && !this.shapeObjectManager.popUpIsActive) {
             this.fluxoFileManager.saveToImage();
         }
     }
@@ -74,7 +74,7 @@ class FluxogramManager {
         this.shapeObjectManager.draw();
     }
     showFluxogramCode() {
-        if (!this.executor.isInExecution()) {
+        if (!this.executor.isInExecution() && !this.shapeObjectManager.popUpIsActive) {
             var temp = [];
             this.fluxoFileManager.createFileFromFluxogram(this.startingBlock.findFirstConnector(this.startingBlock), temp);
             var projectName = document.getElementById('projectName').innerHTML;
@@ -100,7 +100,6 @@ class FluxogramManager {
         this.shapeObjectManager.draw();
     }
     openHelpMenu(innerTab) {
-        debugger;
         if (!this.executor.isInExecution()) {
             new helpPopUp(innerTab);
         }

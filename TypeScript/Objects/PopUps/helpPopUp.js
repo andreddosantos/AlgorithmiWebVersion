@@ -3,10 +3,6 @@ class helpPopUp {
         if (document.body.contains(document.getElementById("helpMenu"))) {
             document.getElementById("helpMenu").parentNode.removeChild(document.getElementById("helpMenu"));
         }
-        //     <div id ="helpMenu">
-        // 	<iframe id="helpInnerHtml" src="help/"+langConstant+"/index.html">
-        // 	</iframe>
-        // </div>
         this.popUp = document.createElement('div');
         this.popUp.setAttribute("id", "helpMenu");
         document.body.appendChild(this.popUp);

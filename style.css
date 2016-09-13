@@ -43,8 +43,8 @@
 	}
 	#aboutMainTitle{
 		position: absolute;
-    left: 185px;
-    top: 31px;
+		left: 110px;
+		top: 0;
 	}
 
 	#aboutMainTitleIndex{
@@ -55,8 +55,8 @@
 
 	#iconAlgorithmiHelpMenu{
 		position: absolute;
-		left: 80px;
-		top: 40px;
+		left: 11px;
+		top: 4px;
 	}
 
 	#iconAlgorithmiHelpMenuIndex{
@@ -89,10 +89,11 @@
 
 	#helpMenu{
 		position: absolute;
-		top: 100px;
-		left: calc(50% - 400px);
-		min-width: 800px;
-		height: 600px;
+		top: calc(10%);
+		left: calc(50% - 350px);
+		min-width: 700px;
+		min-height: 300px;
+		height: 80%;
 		background: #9ca8ad;
 		border-radius: 10px;
 		border: solid 1px;
@@ -117,17 +118,17 @@
 
 	#developedInDiv{
 		position: absolute;
-   		top: 240px;
+		top: 210px;
+		height: 50%;
+		width: 100%;
 	}
 
 	#developedInSpan{
 		position: absolute;
-		left: 250px;
-		width: 100px;
+		left: calc(50% - 80px);
+		width: 300px;
 	}
 	
-
-
 	#variableLabelType{
 		font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
 		font-size: 14px;
@@ -303,12 +304,13 @@
 	}
 
 	#creditsDiv{
-		width: 250px;
+		width: 310px;
 		position: absolute;
-		top: 178px;
-		left: 183px;
+		top: 153px;
+		left: calc(50% - 155px);
 		text-align: center;
 	}
+	
 
 	#saveButton{
 		cursor: hand;
@@ -318,8 +320,8 @@
 
 	#aboutSecondTitle{
 		position: absolute;
-		top: 117px;
-		left: 100px;
+		top: 83px;
+		left: 33px;
 	}
 
 	#aboutSecondTitleIndex{

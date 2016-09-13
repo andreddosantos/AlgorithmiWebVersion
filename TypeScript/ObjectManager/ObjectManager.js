@@ -28,7 +28,8 @@ class ObjectManager {
                 || document.body.contains(document.getElementById("divPop"))
                 || document.body.contains(document.getElementById("divPopInstructionContainer"))
                 || document.body.contains(document.getElementById("divCode"))
-                || document.body.contains(document.getElementById("BreakContinueBlocksInstructionPopUp"))) {
+                || document.body.contains(document.getElementById("BreakContinueBlocksInstructionPopUp"))
+                || document.body.contains(document.getElementById("helpMenu"))) {
                 this.popUpIsActive = true;
             }
             else {
