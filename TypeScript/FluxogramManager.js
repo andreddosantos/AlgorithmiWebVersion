@@ -105,7 +105,7 @@ class FluxogramManager {
         }
     }
     openFile(file) {
-        if (!this.executor.isInExecution()) {
+        if (!this.executor.isInExecution() && !this.shapeObjectManager.popUpIsActive) {
             this.fluxoFileManager.openFile(file);
             this.resizeFluxogramBlocks();
             this.resizeFluxogramBlocks();
@@ -122,7 +122,7 @@ class FluxogramManager {
     }
     downloadFluxogram() {
         debugger;
-        if (!this.executor.isInExecution()) {
+        if (!this.executor.isInExecution() && !this.shapeObjectManager.popUpIsActive) {
             this.fluxoFileManager.saveToFile();
         }
     }

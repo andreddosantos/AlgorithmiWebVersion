@@ -6,7 +6,8 @@
 	<script src="lib/jquery-2.1.4.min.js"></script>
 	<!-- System Constants -->
 	<script src="TypeScript/Constants/BlockConstants.js"></script>
-	<script src="TypeScript/Constants/resource.js"></script>
+	<script src="TypeScript/Constants/resourceEN.js"></script>
+	<script src="TypeScript/Constants/resourcePT.js"></script>
 	<!-- Shapes -->
 	<script src="TypeScript/Objects/Shapes/Shape.js"></script>
 	<script src="TypeScript/Objects/Shapes/Circle.js"></script>
@@ -106,7 +107,7 @@
 	<!--memory Explorer Div-->
 	<div id="memoryExplorerDiv">
 		<div id="memoryContentDiv">
-			memory:
+			<span id="spanInMemoryContentDiv">memory:</span>
 			<div id="internalMemoryWidgetDiv">
 			</div>
 		</div>
@@ -170,6 +171,7 @@
 
 				$('#memoryToolBarTitle').text(lang.MemoryToolBarTitle);
 				$('#outputToolBarTitle').text(lang.OutputToolBarTitle);
+				$('#spanInMemoryContentDiv').text(lang.MemoryInnerToolBarTitle);
 
 				fluxogram = new FluxogramManager($.urlParam('projName'));
 				document.getElementById("fluxogramDiv").addEventListener("mouseDown",(e) => {this.preventDefaultFluxogram(e)});
