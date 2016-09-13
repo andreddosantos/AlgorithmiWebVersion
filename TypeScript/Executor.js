@@ -247,9 +247,10 @@ class Executor {
             me.destroyVariables(declaredVariables);
             return;
         }
-        if (line.next instanceof WriteBlock)
+        if (line.next instanceof WriteBlock) {
             var temp = me.parseNewLineChar(line.next.instruction);
-        me.outputConsole.innerHTML += eval(temp);
+            me.outputConsole.innerHTML += eval(temp);
+        }
         if (line.next instanceof BreakBlock) {
             var block = me.findCycleInScope(line.next);
             if (block != null) {
