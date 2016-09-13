@@ -247,7 +247,8 @@ class Executor {
             return;
         }
         if (line.next instanceof WriteBlock)
-            me.outputConsole.innerHTML += eval(line.next.instruction);
+            var temp = me.parseNewLineChar(line.next.instruction);
+        me.outputConsole.innerHTML += eval(temp);
         if (line.next instanceof BreakBlock) {
             var block = me.findCycleInScope(line.next);
             if (block != null) {
@@ -443,6 +444,11 @@ class Executor {
                 return this.findCycleInScope(block.previousConnector.parent);
             }
         }
+    }
+    parseNewLineChar(instruction) {
+        let temp = instruction.replace(/\\n/g, "<br />");
+        debugger;
+        return temp;
     }
 }
 //# sourceMappingURL=Executor.js.map
