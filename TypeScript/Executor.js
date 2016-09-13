@@ -214,6 +214,7 @@ class Executor {
     *Private recursive method that executes the fluxogram
     */
     executeFluxogram(line, velocity, declaredVariables) {
+        debugger;
         if (line.next == null) {
             declaredVariables = me.destroyVariablesInScope(line, declaredVariables);
             me.updateMemoryWidget(declaredVariables);
