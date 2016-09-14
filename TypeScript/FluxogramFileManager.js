@@ -193,13 +193,16 @@ class FluxogramFileManager {
         else {
             connector = parent.connectors.find(obj => obj.next == null);
         }
-        if (connector == null)
+        if (connector == null) {
+            this.fluxogramManager.resizeFluxogramBlocks();
+            this.fluxogramManager.shapeObjectManager.draw();
             return;
+        }
         if (arrayLinhas[indexLinha].search("DOWHILE") != -1) {
             if (arrayLinhas[indexLinha].search("END DOWHILE") != -1) {
                 return this.createBlocksFromFile(parent.previousConnector.parent, arrayLinhas, indexLinha + 1);
             }
-            var newBlock = parent.addBlock(connector, 6, "teste");
+            var newBlock = parent.addBlock(connector, 6, arrayLinhas[indexLinha].substring(8, arrayLinhas[indexLinha].length));
             newBlock.instruction = arrayLinhas[indexLinha].substring(8, arrayLinhas[indexLinha].length);
             return this.createBlocksFromFile(newBlock, arrayLinhas, indexLinha + 1);
         }
@@ -212,8 +215,11 @@ class FluxogramFileManager {
             let temp = arrayLinhas[indexLinha].substring(8, arrayLinhas[indexLinha].length);
             let tempInst = temp.split(' ');
             for (var j = 0; j < tempInst.length; j++) {
-                if (j == 2) {
-                    newBlock.value = tempInst[j];
+                if (j >= 2) {
+                    if (newBlock.value == null) {
+                        newBlock.value = "";
+                    }
+                    newBlock.value += tempInst[j];
                 }
                 else if (j == 1) {
                     newBlock.instruction = tempInst[j];
@@ -229,7 +235,7 @@ class FluxogramFileManager {
             return this.createBlocksFromFile(parent, arrayLinhas, indexLinha + 1);
         }
         else if (arrayLinhas[indexLinha].search("READ") != -1) {
-            var newBlock = parent.addBlock(connector, 3, "teste");
+            var newBlock = parent.addBlock(connector, 3, arrayLinhas[indexLinha].substring(5, arrayLinhas[indexLinha].length));
             newBlock.instruction = arrayLinhas[indexLinha].substring(5, arrayLinhas[indexLinha].length);
             return this.createBlocksFromFile(parent, arrayLinhas, indexLinha + 1);
         }
@@ -242,7 +248,7 @@ class FluxogramFileManager {
             return this.createBlocksFromFile(parent, arrayLinhas, indexLinha + 1);
         }
         else if (arrayLinhas[indexLinha].search("EXECUTE") != -1) {
-            var newBlock = parent.addBlock(connector, 4, "teste");
+            var newBlock = parent.addBlock(connector, 4, arrayLinhas[indexLinha].substring(8, arrayLinhas[indexLinha].length));
             newBlock.instruction = arrayLinhas[indexLinha].substring(8, arrayLinhas[indexLinha].length);
             return this.createBlocksFromFile(parent, arrayLinhas, indexLinha + 1);
         }
@@ -250,7 +256,7 @@ class FluxogramFileManager {
             if (arrayLinhas[indexLinha].search("END WHILE") != -1) {
                 return this.createBlocksFromFile(parent.previousConnector.parent, arrayLinhas, indexLinha + 1);
             }
-            var newBlock = parent.addBlock(connector, 0, "teste");
+            var newBlock = parent.addBlock(connector, 0, arrayLinhas[indexLinha].substring(6, arrayLinhas[indexLinha].length));
             newBlock.instruction = arrayLinhas[indexLinha].substring(6, arrayLinhas[indexLinha].length);
             return this.createBlocksFromFile(newBlock, arrayLinhas, indexLinha + 1);
         }

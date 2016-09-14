@@ -68,7 +68,38 @@
 	</div>
 
 	<!--Right bar Div-->
-	<div id="rightBarDiv">
+	<div id="algorithmTemplatesDiv">
+		<div id="templatesContentDiv">
+			<span id="spanIntemplatesContentDiv">algoritms:</span>
+			<div id="internalTemplatesWidgetDiv">
+				<div class="masterMiniatureHelp">Decisão</div>
+				<div onclick=
+				'fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(compare_two_CodeToParse)'
+				class="miniatureMinorHelp">Comparar 2 números</div>	
+				<div onclick=
+				'fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(first_25_pair_numbers_CodeToParse)'
+				class="miniatureMinorHelp">25 Numeros Par</div>		
+				<div class="masterMiniatureHelp">Iteração</div>
+				<div onclick=
+				'fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(multiplication_tables_CodeToParse)'
+				class="miniatureMinorHelp">Tabuada</div>
+				<div onclick= 
+				'fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(finonacci_series_CodeToParse)'				
+				class="miniatureMinorHelp">Série de Fibonacci</div>
+				<div class="masterMiniatureHelp">Cálculo</div>
+				<div class="miniatureMinorHelp">Média 2 números</div>
+				<div class="miniatureMinorHelp">Equação 2º grau</div>
+				<div class="miniatureMinorHelp">Calcular Seno</div>
+				<div class="miniatureMinorHelp">Calcular Tangente</div>
+			</div>
+		</div>
+		<div id="templatesToolBar">
+			<div id="templatesToolBarTitle">TEMPLATES</div>
+			<span id="templatesExplorerHideShowButton">
+				<i class="fa fa-sort invertedButton" aria-hidden="true" >
+				</i>
+			</span>
+		</div>
 	</div>
 
 	<!--Title Div-->
@@ -194,6 +225,37 @@
 					fluxogram.openHelpMenu(-1);
 				});
 
+				$("#templatesExplorerHideShowButton").click(function(){
+					
+					if($("#algorithmTemplatesDiv").width() < 18){
+						let tempWindowWidth = $(window).width() - 208;
+						let tempConsoleWidth = $("#outputContainerDiv").width()  - (208);
+
+						$("#algorithmTemplatesDiv").animate({
+							left: tempWindowWidth,
+							width: '208px'
+						});
+
+						$("#outputContainerDiv").animate({
+								right: '208px',
+								width: tempConsoleWidth
+							});
+					}else{
+						let tempWindowWidth = $(window).width() - 17;
+						let tempConsoleWidth = $("#outputContainerDiv").width()  + (208);
+
+						$("#algorithmTemplatesDiv").animate({
+							left: tempWindowWidth,
+							width: '17px'
+						});
+
+						$("#outputContainerDiv").animate({
+								right: '208px',
+								width: tempConsoleWidth
+							});
+					}
+						
+				});
 				
 
 				$("#memoryExplorerHideShowButton").click(function(){
@@ -205,8 +267,6 @@
 								left: '0%',
 								width: '208px'
 							});
-
-						$("#outputContainerDiv").width($(window).width() - $("#memoryExplorerDiv").width());
 
 						$("#outputContainerDiv").animate({
 								left: '208px',
@@ -237,8 +297,10 @@
 				});
 
 				$(window).resize(function () {
+					let temp = $(window).width() - $("#algorithmTemplatesDiv").width()
+					$("#algorithmTemplatesDiv").css('left', temp);
 					fluxogram.resizeCanvas();
-					$("#outputContainerDiv").width($(window).width() - $("#memoryExplorerDiv").width());
+					$("#outputContainerDiv").width($(window).width() - $("#memoryExplorerDiv").width() - $("#algorithmTemplatesDiv").width());
 				});
 
 				$("#playButton").click(function(){
@@ -251,8 +313,8 @@
 					$("#outputContainerDiv").animate({
 						top:'80%',
 						height: '20%',
-						left: 208,
-						width: $(window).width() - 208
+						left: '208px',
+						width: $(window).width() - 208 - $("#algorithmTemplatesDiv").width()
 					});
 
 					fluxogram.execute(1);
@@ -267,8 +329,8 @@
 					$("#outputContainerDiv").animate({
 						top:'80%',
 						height: '20%',
-						left: 208,
-						width: $(window).width() - 208
+						left: '208px',
+						width: $(window).width() - 208 - $("#algorithmTemplatesDiv").width()
 					});
 
 					fluxogram.execute($("#playTimeVelocitySelect").val())

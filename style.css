@@ -26,15 +26,7 @@
 		overflow: hidden;
 	}
 
-	#rightBarDiv{
-		background-color: #3a7991;
-		position: absolute;
-		left: calc(100% - 17px);
-		top: 0;
-		height: 100%;
-		width: 17px;
-
-	}
+	
 
 	#selectListDivContainer{
 		position: absolute;
@@ -100,6 +92,17 @@
 	}
 
 	#memoryToolBarTitle{
+		-webkit-transform: rotate(-90deg);
+		-moz-transform: rotate(-90deg);
+		transform: rotate(90deg);
+		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+		position: absolute;
+		left: 0;
+		top: calc(50% - 40px);
+		right: 0;
+	}
+
+	#templatestoolBarTitle{
 		-webkit-transform: rotate(-90deg);
 		-moz-transform: rotate(-90deg);
 		transform: rotate(90deg);
@@ -239,6 +242,14 @@
 		color: white;
 		left: 3;
 	}
+
+	#templatesExplorerHideShowButton {
+		position: absolute;
+		color: white;
+		left: 3;
+	}
+
+
 
 	.invertedButton{
 		cursor: hand;
@@ -441,8 +452,33 @@
 		background-color: #3a7991;
 	}
 
+	#algorithmTemplatesDiv{
+		background-color: #3a7991;
+		position: absolute;
+		left: calc(100% - 17px);
+		top: 64px;
+		height: calc(100% - 64px);
+		width: 17px;
+	}
+
+
 
 	#internalMemoryWidgetDiv{
+		border-style: solid;
+		border-width: 1px;
+		background-color: #eaa189;
+		position: absolute;
+		left: 9px;
+		top: calc(0% + 19px);
+		width: calc(100% - 20px);
+		height: calc(100% - 30px);
+		border-radius: 12px;
+		overflow: hidden;
+		overflow: auto;
+	}
+
+
+	#internalTemplatesWidgetDiv{
 		border-style: solid;
 		border-width: 1px;
 		background-color: #eaa189;
@@ -504,12 +540,33 @@
 		height: 100%;
 		background: #3A7991;
 	}
+
+	#templatesToolBar{
+		position: absolute;
+		width: 17px;
+		top: 0%;
+		left: 0px;
+		/* left: 80px; */
+		height: 100%;
+		background: #3A7991;
+	}
 	
 	#memoryContentDiv{
 		overflow: hidden;
 		position: absolute;
 		top: 0px;
 		left: 8px;
+		width: calc(100% - 26px);
+		height: calc(100% - 10px);
+		background: #ED8664;
+		border-radius: 10px;
+	}
+
+	#templatesContentDiv{
+		overflow: hidden;
+		position: absolute;
+		top: 0px;
+		right: 8px;
 		width: calc(100% - 26px);
 		height: calc(100% - 10px);
 		background: #ED8664;

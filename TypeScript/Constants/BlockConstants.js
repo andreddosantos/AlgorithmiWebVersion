@@ -109,4 +109,68 @@ var ConfirmSuccessWarningPopUpSize;
     ConfirmSuccessWarningPopUpSize[ConfirmSuccessWarningPopUpSize["Width"] = 160] = "Width";
 })(ConfirmSuccessWarningPopUpSize || (ConfirmSuccessWarningPopUpSize = {}));
 ;
+var compare_two_CodeToParse = [
+    "BEGIN Compare_Two",
+    'WRITE "Comparar dois números\\n"',
+    'WRITE "Introduza um valor inteiro positivo para A: \\n"',
+    "DECLARE number A 0",
+    "READ A",
+    'WRITE "Introduza um valor inteiro positivo para B: \\n"',
+    "DECLARE number B 0",
+    "READ B",
+    "IF A == B",
+    'WRITE "Os números fornecidos são iguais! \\n" ',
+    'ELSE',
+    'IF A > B',
+    'WRITE "O número A é maior"',
+    'ELSE',
+    'WRITE "O número B é Maior"',
+    'END IF',
+    'END IF',
+    'END Compare_Two'
+];
+var multiplication_tables_CodeToParse = [
+    'BEGIN multiplication_tables',
+    'WRITE "Calculo da tabuada \\n"',
+    'WRITE "Introduza um valor inteiro positivo para tabuada \\n"',
+    'DECLARE number numero 0',
+    'READ numero',
+    'IF numero <= 10 && numero >= 0',
+    'DECLARE number auxiliar 0',
+    'WHILE auxiliar < 10',
+    'EXECUTE auxiliar = auxiliar + 1',
+    'WRITE numero + " * " + auxiliar + " = " + (numero * auxiliar) + "\\n"',
+    'END WHILE',
+    'ELSE',
+    'WRITE "Número inválido para calcular"',
+    'END IF',
+    'END multiplication_tables'
+];
+var first_25_pair_numbers_CodeToParse = [
+    'BEGIN first_25_pair_numbers',
+    'WRITE "Primeiros 25 números par \\n"',
+    'DECLARE number primeiroNumero 0',
+    'WHILE primeiroNumero < 50',
+    'EXECUTE primeiroNumero = primeiroNumero + 1',
+    'IF primeiroNumero % 2 == 0',
+    'WRITE "O número " + primeiroNumero + " é par! \\n"',
+    'END IF',
+    'END WHILE',
+    'END first_25_pair_numbers'
+];
+var finonacci_series_CodeToParse = [
+    'BEGIN MyFirstProject',
+    'WRITE "Série Fibonacci\\n"',
+    'DECLARE number anterior 0',
+    'DECLARE number actual 1',
+    'DECLARE number aux 1',
+    'WHILE aux < 10',
+    'EXECUTE aux ++',
+    'WRITE "\\n" + actual',
+    'DECLARE number proximo anterior + actual',
+    'EXECUTE anterior = actual',
+    'EXECUTE actual = proximo',
+    'END WHILE',
+    'END MyFirstProject'
+];
 //# sourceMappingURL=BlockConstants.js.map
