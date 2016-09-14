@@ -27,6 +27,9 @@ class helpPopUp {
         this.masterTemplateMiniature = document.createElement('div');
         this.masterTemplateMiniature.setAttribute("class", "masterMiniatureHelp");
         this.masterTemplateMiniature.innerHTML = lang.HelpPopUpTemplateTab;
+        this.masterTemplateMiniature.addEventListener('mousedown', (e) => {
+            this.contentIframe.setAttribute("src", "help/" + langConstant + "/Algorithms.html");
+        });
         this.masterBlockMiniature = document.createElement('div');
         this.masterBlockMiniature.setAttribute("class", "masterMiniatureHelp");
         this.masterBlockMiniature.innerHTML = lang.HelpPopUpBlocksTab;

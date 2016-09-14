@@ -701,6 +701,26 @@
 		overflow-y: auto;
 	}
 
+	#optionListDivAlgo{
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		border: solid 1px;
+		width: 100px;
+		border-radius: 10px;
+		overflow-y: auto;
+		height: calc(100% - 20px);
+	}
+
+	#algoritmTemplateContent{
+		left: 118px;
+		position: absolute;
+		width: calc(100% - 125px);
+		border-radius: 10px;
+		height: calc(100% - 20px);
+		top: 10px;
+	}
+
 	#expressionInsert{
 		position: absolute;
 		top: 50px;
@@ -908,6 +928,19 @@
 		width: 80%;
 		padding: 4px;
 		height: 25px;
+	}
+
+		#closeCodePopPupButtonAlgorithms{
+		    position: relative;
+			top: calc(100% - 38px);
+			left: 10%;
+			background-color: #728c6a;
+			border-radius: 5px;
+			font-size: 150%;
+			text-align: center;
+			width: 80%;
+			padding: 4px;
+			height: 25px;
 	}
 
 	.masterMiniatureHelp{

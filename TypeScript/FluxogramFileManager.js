@@ -3,6 +3,14 @@ class FluxogramFileManager {
     constructor(fluxogramManager) {
         this.fluxogramManager = fluxogramManager;
     }
+    createFluxogramThrougtStringArray(fileContent) {
+        //Remove every existing blocks
+        this.fluxogramManager.blocks = [];
+        this.fluxogramManager.shapeObjectManager.shapes = [];
+        this.fluxogramManager.blocks.push(new BegginingBlock(this.fluxogramManager.startingBlock.xPosition, this.fluxogramManager.startingBlock.yPosition, BegginingBlockShapeSize.endShapeSizeWidth, BegginingBlockShapeSize.blockHeight, this.fluxogramManager.shapeObjectManager, this.fluxogramManager, ""));
+        this.fluxogramManager.startingBlock = this.fluxogramManager.blocks[0] instanceof BegginingBlock ? this.fluxogramManager.blocks[0] : null;
+        this.createBlocksFromFile(this.fluxogramManager.startingBlock, fileContent, 1);
+    }
     createFluxogram(fileContent) {
         //Remove every existing blocks
         this.fluxogramManager.blocks = [];
