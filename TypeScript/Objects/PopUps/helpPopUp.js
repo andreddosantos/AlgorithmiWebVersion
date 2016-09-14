@@ -24,14 +24,10 @@ class helpPopUp {
         this.masterAboutMiniature = document.createElement('div');
         this.masterAboutMiniature.setAttribute("class", "masterMiniatureHelp");
         this.masterAboutMiniature.innerHTML = lang.HelpPopUpAbout;
-        this.masterTemplateMiniature = document.createElement('div');
-        this.masterTemplateMiniature.setAttribute("class", "masterMiniatureHelp");
-        this.masterTemplateMiniature.innerHTML = lang.HelpPopUpTemplateTab;
         this.masterBlockMiniature = document.createElement('div');
         this.masterBlockMiniature.setAttribute("class", "masterMiniatureHelp");
         this.masterBlockMiniature.innerHTML = lang.HelpPopUpBlocksTab;
         this.optionListDiv.appendChild(this.masterAboutMiniature);
-        this.optionListDiv.appendChild(this.masterTemplateMiniature);
         this.optionListDiv.appendChild(this.masterBlockMiniature);
         this.firstBlockMiniature = document.createElement('div');
         this.firstBlockMiniature.setAttribute("class", "miniatureMinorHelp");

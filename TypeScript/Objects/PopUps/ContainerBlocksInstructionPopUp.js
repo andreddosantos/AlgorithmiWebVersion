@@ -28,7 +28,8 @@ class ContainerBlocksInstructionPopUp {
         this.closingButton = document.createElement('div');
         //this.closingButton.setAttribute("src", "./img/close-circle-512.png");
         this.closingButton.innerHTML = lang.ButtonCancelPopUp;
-        this.instructionTextBox = document.createElement('textarea');
+        this.instructionTextBox = document.createElement('input');
+        this.instructionTextBox.setAttribute("type", "text");
         this.instructionTextBox.setAttribute("class", "instructionTextArea");
         if (editBlock == null) {
             this.titleDIV.innerHTML = lang.ContainerBlockTitlePopUp;
