@@ -78,12 +78,14 @@ class ObjectManager {
             //check if i'm over the shapes
             for (var index = 0; index < this.shapes.length; index++) {
                 if (this.shapes[index].contains(this.mouseX(e, rect), this.mouseY(e, rect)) && this.shapes[index].reactOnHover) {
+                    document.getElementById("fluxogramCanvas").style.cursor = "hand";
                     if (!this.shapes[index].onMouseOuver) {
                         this.shapes[index].onMouseOuver = true;
                         this.shapes[index].actionOnMouseOver(this.context);
                     }
                 }
                 else if (this.shapes[index].onMouseOuver) {
+                    document.getElementById("fluxogramCanvas").style.cursor = "move";
                     this.shapes[index].onMouseOuver = false;
                     this.draw();
                 }

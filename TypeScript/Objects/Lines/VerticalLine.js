@@ -5,6 +5,7 @@ class VerticalLine extends Line {
         this.onMouseOverFillStyle = "#ffffff";
         this.headlen = 6;
         this.hasArrow = hasArrow;
+        this.utilityMargin = 10;
         this.lineHeight = 8;
     }
     actionOnMouseClick(ctx) {
@@ -64,7 +65,7 @@ class VerticalLine extends Line {
         var yPosition = this.yPosition;
         var width = this.lineHeight;
         var height = this.y2 - this.y1;
-        return (xPosition <= mouseXPosition) && (xPosition + width >= mouseXPosition)
+        return ((xPosition - this.utilityMargin) <= mouseXPosition) && (xPosition + width + this.utilityMargin >= mouseXPosition)
             && (yPosition <= mouseYPosition) && (yPosition + height >= mouseYPosition);
     }
 }

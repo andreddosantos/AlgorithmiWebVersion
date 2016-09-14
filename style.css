@@ -4,6 +4,10 @@
 		left:0; 
 	}
 
+	.button{
+		cursor: hand;
+	}
+
 	#iconAlgorithmi{
 		position: absolute;
 		width: 60px;
@@ -20,7 +24,7 @@
 		left: calc(50% - 100px);
 	}
 
-	canvas { cursor: hand; }
+	canvas { cursor: move; }
 
 	body{
 		overflow: hidden;
@@ -103,14 +107,14 @@
 	}
 
 	#templatestoolBarTitle{
-		-webkit-transform: rotate(-90deg);
-		-moz-transform: rotate(-90deg);
-		transform: rotate(90deg);
-		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 		position: absolute;
 		left: 0;
-		top: calc(50% - 40px);
+		top: calc(50% - 0px);
 		right: 0;
+		-webkit-transform: rotate(-90deg);
+		-moz-transform: rotate(-90deg);
+		transform: rotate(180);
+		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	}
 
 	#outputToolBarTitle{

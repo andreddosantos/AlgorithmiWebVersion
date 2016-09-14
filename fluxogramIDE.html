@@ -72,25 +72,20 @@
 		<div id="templatesContentDiv">
 			<span id="spanIntemplatesContentDiv">algoritms:</span>
 			<div id="internalTemplatesWidgetDiv">
-				<div class="masterMiniatureHelp">Decisão</div>
-				<div onclick=
-				'fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(compare_two_CodeToParse)'
-				class="miniatureMinorHelp">Comparar 2 números</div>	
-				<div onclick=
-				'fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(first_25_pair_numbers_CodeToParse)'
-				class="miniatureMinorHelp">25 Numeros Par</div>		
-				<div class="masterMiniatureHelp">Iteração</div>
-				<div onclick=
-				'fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(multiplication_tables_CodeToParse)'
-				class="miniatureMinorHelp">Tabuada</div>
-				<div onclick= 
-				'fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(finonacci_series_CodeToParse)'				
-				class="miniatureMinorHelp">Série de Fibonacci</div>
-				<div class="masterMiniatureHelp">Cálculo</div>
-				<div class="miniatureMinorHelp">Média 2 números</div>
-				<div class="miniatureMinorHelp">Equação 2º grau</div>
-				<div class="miniatureMinorHelp">Calcular Seno</div>
-				<div class="miniatureMinorHelp">Calcular Tangente</div>
+				<div id="masterTabAlgDecision" class="masterMiniatureHelp">Decisão</div>
+				<div id="compareTwoNumberAlg" class="miniatureMinorHelp button">Comparar 2 números</div>	
+				<div id="evenNumbersAlg" class="miniatureMinorHelp button">25 Numeros Par</div>	
+				<div id ="oddNumberAlg" class="miniatureMinorHelp button"> 25 Numeros Ímpar</div>		
+				<div id="masterTabAlgIteration" class="masterMiniatureHelp">Iteração</div>
+				<div id="multiplicationAlg"" class="miniatureMinorHelp button">Tabuada</div>
+				<div id="pyramidAlg" class="miniatureMinorHelp button">Pirâmide</div>
+				<div id ="fibonacciAlg" class="miniatureMinorHelp button">Série de Fibonacci</div>
+				<div id="masterTabAlgCalcule" class="masterMiniatureHelp">Cálculo</div>
+				<div id= "twoNumberAvarageAlg" class="miniatureMinorHelp button">Média 2 números</div>
+				<div id= "quadraticEquationAlg"  class="miniatureMinorHelp button">Equação 2º grau</div>
+				<div id ="calculateTanAlg" class="miniatureMinorHelp button">Calcular Tangente </div>
+				<div id ="calculateSinAlg" class="miniatureMinorHelp button">Calcular Seno</div>
+				<div id ="calculateCosAlg" class="miniatureMinorHelp button">Calcular Cosseno</div>
 			</div>
 		</div>
 		<div id="templatesToolBar">
@@ -101,6 +96,7 @@
 			</span>
 		</div>
 	</div>
+
 
 	<!--Title Div-->
 	<div id="titleDiv">
@@ -179,6 +175,12 @@
 			}
 
 			$(document).ready(function(){
+
+				$('textarea').keypress(function(event) {
+					if (event.keyCode == 13) {
+						event.preventDefault();
+					}
+				});
 
 				$.urlParam = function(name, url) {
 					if (!url) {
@@ -354,6 +356,76 @@
 				$("#stopButton").click(function(){
 					fluxogram.executor.stopExecution()
 				}); 
+
+				debugger;
+			
+
+				//Load Template tab Settings and language 
+				$("#compareTwoNumberAlg").text(lang.compareTwoNumberAlgSentence);
+				$("#evenNumbersAlg").text(lang.evenNumbersAlgSentence);
+				$("#oddNumberAlg").text(lang.oddNumbersAlgSentence);
+				$("#multiplicationAlg").text(lang.multiplicationAlgSentence);
+				$("#pyramidAlg").text(lang.pyramidAlgSentence);
+				$("#fibonacciAlg").text(lang.fibonacciAlgSentence);
+				$("#twoNumberAvarageAlg").text(lang.twoNumberAvarageAlgSentence);
+				$("#quadraticEquationAlg").text(lang.quadraticEquationAlgSentence);
+				$("#calculateTanAlg").text(lang.calculateTanAlgSentence);
+				$("#calculateSinAlg").text(lang.calculateSinAlgSentence);
+				$("#calculateCosAlg").text( lang.calculateCosAlgSentence);
+				$("#masterTabAlgDecision").text( lang.masterTabAlgDecisionSentence);
+				$("#masterTabAlgIteration").text( lang.masterTabAlgIterationSentence);
+				$("#masterTabAlgCalcule").text( lang.masterTabAlgCalculeSentence);
+				$("#spanIntemplatesContentDiv").text(lang.templatesTabInnerTitle);
+				$("#templatesToolBarTitle").text(lang.templatesTabOutterTitle);
+
+
+
+				function validateTemplateInsertion(callBack){
+					if (fluxogram.blocks.length > 1) {
+						new ConfirmPopUp(10,10,"All blocks will be removed to insert the template do you wish to continue?",callBack);
+					}else{
+						window.eval(callBack);
+					}
+				}
+
+
+				$("#compareTwoNumberAlg").click(function(){
+					validateTemplateInsertion("fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(lang.compare_two_CodeToParse)");
+				}); 
+				$("#evenNumbersAlg").click(function(){
+					validateTemplateInsertion("fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(lang.first_25_even_numbers_CodeToParse)");
+				}); 
+				$("#oddNumberAlg").click(function(){
+					validateTemplateInsertion("fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(lang.first_25_odd_numbers_CodeToParse)");
+				}); 
+				$("#multiplicationAlg").click(function(){
+					validateTemplateInsertion("fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(lang.multiplication_tables_CodeToParse)");
+				}); 
+				$("#pyramidAlg").click(function(){
+					validateTemplateInsertion("fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(lang.piramide_CodeToParse)");
+				}); 
+				$("#fibonacciAlg").click(function(){
+					validateTemplateInsertion("fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(lang.finonacci_series_CodeToParse)");
+				}); 
+				$("#twoNumberAvarageAlg").click(function(){
+					validateTemplateInsertion("fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(lang.number_avarage_CodeToParse)");			
+				}); 
+				$("#quadraticEquationAlg").click(function(){
+					validateTemplateInsertion("fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(lang.quadratic_equation_CodeToParse)");			
+				}); 
+				$("#calculateTanAlg").click(function(){
+					validateTemplateInsertion("fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(lang.math_tan_CodeToParse)");		
+				}); 
+				$("#calculateSinAlg").click(function(){
+					validateTemplateInsertion("fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(lang.math_sin_CodeToParse)");			
+				}); 
+				$("#calculateCosAlg").click(function(){
+					validateTemplateInsertion("fluxogram.fluxoFileManager.createFluxogramThrougtStringArray(lang.math_cos_CodeToParse)");	
+				}); 
+
+
+
+
 			});
 			</script>
 </BODY>
