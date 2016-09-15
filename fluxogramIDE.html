@@ -379,6 +379,9 @@
 
 
 				function validateTemplateInsertion(callBack){
+					if(fluxogram.shapeObjectManager.isPopUpActive || fluxogram.executor.isInExecution())
+					return 
+					
 					if (fluxogram.blocks.length > 1) {
 						new ConfirmPopUp(10,10,lang.loadTemplateConfirmSentence,callBack);
 					}else{
