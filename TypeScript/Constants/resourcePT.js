@@ -1,4 +1,14 @@
 var fluxogramLanguagePT = {
+    //PopUpExecutor
+    ExecutorVariableExists: "Já existe uma variável com este nome!",
+    ExecutorInvalidExpression: "Expressão inválida!",
+    ExecutorSuccessMessage: "Algoritmo executado com sucesso, verifique o seu resultado na consola.",
+    ExecutorInvalidWriteBlock: "O a instrução de ve ser do tipo texto e deve estar rodeada por aspas.",
+    ExecutorDeclareErrorOne: "Esta variável é do tipo ",
+    ExecutorDeclareErrorTwo: ", mas tem  ",
+    ExecutorDeclareErrorThree: " como valor.",
+    ReadPopUpWarningNoVariable: "A variável seleccionada já nao existe seleccione outra ou elimine o boco.",
+    //IDE
     MemoryToolBarTitle: "MEMÓRIA",
     MemoryInnerToolBarTitle: "memória:",
     OutputToolBarTitle: "CONSOLA",
@@ -75,7 +85,9 @@ var fluxogramLanguagePT = {
     masterTabAlgIterationSentence: "Iteração",
     masterTabAlgCalculeSentence: "Cálculo",
     templatesTabInnerTitle: "algoritmos:",
+    outputTabInnerTitle: "consola:",
     templatesTabOutterTitle: "ALGORITMOS",
+    loadTemplateConfirmSentence: "Para carregar o algoritmo será necessário remover todos os blocos, deseja continuar?",
     compare_two_CodeToParse: [
         "BEGIN Compare_Two",
         'WRITE "Comparar dois números\\n"',

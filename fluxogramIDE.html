@@ -158,7 +158,7 @@
 			<span id="ConsoleMoveButton"><i class="fa fa-sort" aria-hidden="true" style="color: white;position: absolute;left: 97%;"></i></span>
 		</div>
 		<div id="ouputContentDiv">
-			output:
+			<span id="spanInOutputContentDiv">output:</span>
 			<div id="internalOutputContentDiv">
 
 			</div>
@@ -357,10 +357,8 @@
 					fluxogram.executor.stopExecution()
 				}); 
 
-				debugger;
-			
-
 				//Load Template tab Settings and language 
+				$("#spanInOutputContentDiv").text(lang.outputTabInnerTitle);
 				$("#compareTwoNumberAlg").text(lang.compareTwoNumberAlgSentence);
 				$("#evenNumbersAlg").text(lang.evenNumbersAlgSentence);
 				$("#oddNumberAlg").text(lang.oddNumbersAlgSentence);
@@ -382,7 +380,7 @@
 
 				function validateTemplateInsertion(callBack){
 					if (fluxogram.blocks.length > 1) {
-						new ConfirmPopUp(10,10,"All blocks will be removed to insert the template do you wish to continue?",callBack);
+						new ConfirmPopUp(10,10,lang.loadTemplateConfirmSentence,callBack);
 					}else{
 						window.eval(callBack);
 					}

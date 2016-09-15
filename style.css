@@ -506,6 +506,7 @@
 		height: calc(100% - 30px);
 		border-style: solid;
 		border-width: 1px;
+		white-space: pre;
 		overflow: auto;
 	}
 

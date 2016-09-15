@@ -77,7 +77,7 @@ class Executor {
             isExpressionValid = ('string' == instanceType ? true : false);
             if (!isExpressionValid) {
                 //If it is a string 
-                new ErrorPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Height, "Invalid content for write block");
+                new ErrorPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Height, lang.ExecutorInvalidWriteBlock);
             }
         }
         catch (err) {
@@ -123,7 +123,7 @@ class Executor {
         tempDeclaredVariables = this.initializeVariablesInScope(line, tempDeclaredVariables);
         try {
             eval(name);
-            new ErrorPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Height, "A variable with this name already exists!");
+            new ErrorPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Height, lang.ExecutorVariableExists);
         }
         catch (err) {
             if (err.name == "ReferenceError") {
@@ -152,7 +152,7 @@ class Executor {
             //Check if expression is boolean type
             isExpressionValid = typeof (eval(originalInstruction)) === "boolean";
             if (!isExpressionValid) {
-                new ErrorPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Height, "Invalid expression");
+                new ErrorPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Height, lang.ExecutorInvalidExpression);
             }
         }
         catch (err) {
@@ -242,7 +242,7 @@ class Executor {
                 }
                 return me.execute(line.parent.nextConnector, velocity, declaredVariables);
             }
-            new SuccessPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Height, "Executed with success, check the output below.");
+            new SuccessPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Height, lang.ExecutorSuccessMessage);
             me.stopExecution();
             me.destroyVariables(declaredVariables);
             return;
@@ -396,7 +396,7 @@ class Executor {
             var instanceType = typeof (eval(name));
             isExpressionValid = (type == instanceType ? true : false);
             if (!isExpressionValid) {
-                new ErrorPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Height, "Variable of type " + type + ", has " + instanceType + " as value");
+                new ErrorPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Height, lang.ExecutorDeclareErrorOne + type + lang.ExecutorDeclareErrorTwo + instanceType + lang.ExecutorDeclareErrorThree);
             }
         }
         catch (err) {

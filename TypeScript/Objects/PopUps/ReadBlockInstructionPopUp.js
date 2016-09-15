@@ -52,7 +52,7 @@ class ReadBlockInstructionPopUp {
         }
         else {
             if (this.variableNames.indexOf(this.editBlock.instruction) == -1) {
-                new WarningPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Heigth, "The selected variable no longer exists, choose another or remove the block");
+                new WarningPopUp(ErrorSuccessWarningPopUpSize.Width, ErrorSuccessWarningPopUpSize.Heigth, lang.ReadPopUpWarningNoVariable);
             }
             this.variableNamesSelectList.selectedIndex = this.variableNames.indexOf(this.editBlock.instruction);
             this.titleDIV.innerHTML = lang.ReadBlockEditTitlePopUp;
