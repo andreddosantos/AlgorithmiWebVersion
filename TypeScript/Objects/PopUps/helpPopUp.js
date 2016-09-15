@@ -11,7 +11,7 @@ class helpPopUp {
         this.popUp.appendChild(this.optionListDiv);
         this.closeButtonDiv = document.createElement('div');
         this.closeButtonDiv.setAttribute("id", "closeCodePopPupButton");
-        this.closeButtonDiv.innerHTML = 'close';
+        this.closeButtonDiv.innerHTML = lang.CloseButtonSentence;
         this.popUp.appendChild(this.closeButtonDiv);
         this.contentIframe = document.createElement('iframe');
         this.contentIframe.setAttribute("id", "helpInnerHtml");

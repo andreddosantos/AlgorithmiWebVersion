@@ -8,7 +8,7 @@ class ReadBlockExecutionPopUp {
         this.variableName = variableName;
         this.titleDIV = document.createElement('div');
         this.titleDIV.setAttribute("id", "popUpMenuTitle");
-        this.titleDIV.innerHTML = "Read Block";
+        this.titleDIV.innerHTML = lang.ReadBlock;
         this.messageLabel = document.createElement('label');
         this.messageLabel.setAttribute("id", "variableLabelType");
         this.messageLabel.innerHTML = lang.ReadBlockExecutionTextOne + variableName + lang.ReadBlockExecutionTextTwo;

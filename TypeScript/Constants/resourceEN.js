@@ -1,5 +1,15 @@
 var langConstant = "en";
 var lang = {
+    //PopUpExecutor
+    ExecutorVariableExists: "A variable with this name already exists!",
+    ExecutorInvalidExpression: "Invalid expression",
+    ExecutorSuccessMessage: "Executed with success, check the output below.",
+    ExecutorInvalidWriteBlock: "Invalid content for write block",
+    ExecutorDeclareErrorOne: "Variable of type ",
+    ExecutorDeclareErrorTwo: ", has  ",
+    ExecutorDeclareErrorThree: " as value.",
+    ReadPopUpWarningNoVariable: "The selected variable no longer exists, choose another or remove the block",
+    //IDE
     MemoryToolBarTitle: "MEMORY",
     MemoryInnerToolBarTitle: "memory:",
     OutputToolBarTitle: "OUTPUT",
@@ -77,6 +87,8 @@ var lang = {
     masterTabAlgCalculeSentence: "Calculation",
     templatesTabInnerTitle: "algorithms",
     templatesTabOutterTitle: "ALGORITHMS",
+    outputTabInnerTitle: "output:",
+    loadTemplateConfirmSentence: "All blocks will be removed to insert the template do you wish to continue?",
     compare_two_CodeToParse: [
         "BEGIN Compare_Two",
         'WRITE "Comparar dois números\\n"',
@@ -232,6 +244,16 @@ var lang = {
     ],
 };
 var fluxogramLanguageEN = {
+    //PopUpExecutor
+    ExecutorVariableExists: "A variable with this name already exists!",
+    ExecutorInvalidExpression: "Invalid expression",
+    ExecutorSuccessMessage: "Executed with success, check the output below.",
+    ExecutorInvalidWriteBlock: "Invalid content for write block",
+    ExecutorDeclareErrorOne: "Variable of type ",
+    ExecutorDeclareErrorTwo: ", has  ",
+    ExecutorDeclareErrorThree: " as value.",
+    ReadPopUpWarningNoVariable: "The selected variable no longer exists, choose another or remove the block",
+    //IDE
     MemoryToolBarTitle: "MEMORY",
     MemoryInnerToolBarTitle: "memory:",
     OutputToolBarTitle: "OUTPUT",
@@ -309,6 +331,8 @@ var fluxogramLanguageEN = {
     masterTabAlgCalculeSentence: "Calculation",
     templatesTabInnerTitle: "algorithms:",
     templatesTabOutterTitle: "ALGORITHMS",
+    outputTabInnerTitle: "output:",
+    loadTemplateConfirmSentence: "All blocks will be removed to insert the template do you wish to continue?",
     compare_two_CodeToParse: [
         "BEGIN Compare_Two",
         'WRITE "Compare two numbers\\n"',

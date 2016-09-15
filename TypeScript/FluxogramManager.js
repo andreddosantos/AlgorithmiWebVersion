@@ -28,6 +28,10 @@ class FluxogramManager {
         this.canvas.getContext("2d").lineHeight = 6;
         this.create();
     }
+    setProjectName(projectName) {
+        this.projectName = projectName;
+        document.getElementById("projectName").textContent = projectName;
+    }
     /**
      * Creates new Fluxogram
      */

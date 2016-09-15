@@ -9,6 +9,7 @@ class FluxogramFileManager {
         this.fluxogramManager.shapeObjectManager.shapes = [];
         this.fluxogramManager.blocks.push(new BegginingBlock(this.fluxogramManager.startingBlock.xPosition, this.fluxogramManager.startingBlock.yPosition, BegginingBlockShapeSize.endShapeSizeWidth, BegginingBlockShapeSize.blockHeight, this.fluxogramManager.shapeObjectManager, this.fluxogramManager, ""));
         this.fluxogramManager.startingBlock = this.fluxogramManager.blocks[0] instanceof BegginingBlock ? this.fluxogramManager.blocks[0] : null;
+        this.fluxogramManager.setProjectName(fileContent[0].substring(6, fileContent[0].length));
         this.createBlocksFromFile(this.fluxogramManager.startingBlock, fileContent, 1);
     }
     createFluxogram(fileContent) {
@@ -18,6 +19,7 @@ class FluxogramFileManager {
         this.fluxogramManager.blocks.push(new BegginingBlock(this.fluxogramManager.startingBlock.xPosition, this.fluxogramManager.startingBlock.yPosition, BegginingBlockShapeSize.endShapeSizeWidth, BegginingBlockShapeSize.blockHeight, this.fluxogramManager.shapeObjectManager, this.fluxogramManager, ""));
         this.fluxogramManager.startingBlock = this.fluxogramManager.blocks[0] instanceof BegginingBlock ? this.fluxogramManager.blocks[0] : null;
         var temp = fileContent.split('\n');
+        this.fluxogramManager.setProjectName(temp[0].substring(6, temp[0].length));
         this.createBlocksFromFile(this.fluxogramManager.startingBlock, temp, 1);
     }
     openFile(file) {
