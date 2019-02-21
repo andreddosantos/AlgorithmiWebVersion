@@ -1,5 +1,5 @@
 # AlgorithmiWebVersion
-Online Flowchart Editor and Executor
+Flowchart Editor and Executor
 
 
 
